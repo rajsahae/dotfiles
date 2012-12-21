@@ -1,0 +1,12 @@
+@local_gitconfig = File.expand_path(".gitconfig")
+@gitconfig = File.expand_path("~/.gitconfig")
+
+desc "install links for .gitconfig to ~/.gitconfig"
+task :install do
+  File.symlink(@local_gitconfig, @gitconfig)
+end
+
+desc "clean up existing folders and links"
+task :clean do
+  FileUtils.rm @gitconfig
+end
