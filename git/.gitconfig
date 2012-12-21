@@ -1,0 +1,12 @@
+[user]
+	name = Raj Sahae
+	email = rajsahae@gmail.com
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[merge]
+	tool = vimdiff
+[credential]
+	helper = cache --timeout=3600
