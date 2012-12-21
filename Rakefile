@@ -1,26 +1,13 @@
 task :install => [:vim_install, :git_install]
 task :clean => [:vim_clean, :git_clean]
 
-task :vim_install do
-  Dir.chdir("vim") do |dir|
-    system "rake install"
-  end
-end
 
-task :vim_clean do
-  Dir.chdir("vim") do |dir|
-    system "rake clean"
-  end
-end
-
-task :git_install do
-  Dir.chdir("git") do |dir|
-    system "rake install"
-  end
-end
-
-task :vim_clean do
-  Dir.chdir("git") do |dir|
-    system "rake clean"
+["git", "vim"].each do |prog|
+  ["clean", "install"].each do |action|
+    task "#{prog}_#{action}".to_sym do
+      Dir.chdir(prog) do |dir|
+        system "rake #{action}"
+      end
+    end
   end
 end
