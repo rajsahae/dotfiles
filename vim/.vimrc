@@ -137,7 +137,7 @@ set foldmethod=indent   " Set foldmethod to fold by indents
 
 " Added by Raj Sahae 2012.06.10
 let mapleader = ","     " Set leader to comma
-colorscheme ir_black
+colorscheme desert256
 " Swap the  ' and ` keys
 nnoremap ' `
 nnoremap ` '
