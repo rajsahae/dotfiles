@@ -137,7 +137,7 @@ set foldmethod=indent   " Set foldmethod to fold by indents
 
 " Added by Raj Sahae 2012.06.10
 let mapleader = ","     " Set leader to comma
-colorscheme desert256
+colorscheme ir_black
 " Swap the  ' and ` keys
 nnoremap ' `
 nnoremap ` '
@@ -152,14 +152,27 @@ set scrolloff=3               " Maintain 3 lines of context around the cursor
 set listchars=tab:>-,trail:.,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 set shortmess=atI             " Stifle interrupting prompts
+
+" Remap window and buffer commands
 nnoremap <leader>c <C-w>c
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>w <C-w>w
+nnoremap <leader>l <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
 nnoremap <leader><leader>w :w<CR>
+inoremap <leader><leader>c <ESC>
+
 " key mappings for pair completion
 inoremap ( ()<Left>
 inoremap { {}<Left>
+inoremap <%= <%=%><Left><Left>
+inoremap <% <%%><Left><Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> %>  strpart(getline('.'), col('.')-1, 2) == "%>" ? "\<Right><Right>" : "%>"
