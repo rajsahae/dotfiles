@@ -1,12 +1,24 @@
 [user]
-	name = Raj Sahae
-	email = rajsahae@gmail.com
+  name = Raj Sahae
+  email = rajsahae@gmail.com
+
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
 [merge]
-	tool = vimdiff
+  tool = vimdiff
+
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
+
+[alias]
+  co = checkout
+  st = status
+  br = branch
+  cm = commit
+  sb = status --short --branch
+  di = diff
+  dc = diff --cached
