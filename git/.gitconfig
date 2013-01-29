@@ -22,3 +22,4 @@
   sb = status --short --branch
   di = diff
   dc = diff --cached
+  lo = log --oneline
