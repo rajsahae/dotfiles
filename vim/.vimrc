@@ -134,6 +134,7 @@ set nospell             " Enable spellchecker
 
 " Added by Raj Sahae 2012.02.15
 set foldmethod=indent   " Set foldmethod to fold by indents
+set foldlevel=2         " Set initial foldlevel to 2 => Added 2013.01.30
 
 " Added by Raj Sahae 2012.06.10
 let mapleader = ","     " Set leader to comma
