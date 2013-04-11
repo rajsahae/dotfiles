@@ -173,6 +173,8 @@ inoremap { {}<Left>
 inoremap <%= <%=%><Left><Left>
 inoremap <% <%%><Left><Left>
 inoremap {<CR> {<CR>}<Esc>O
+inoremap do<CR> do<CR>end<Esc>O
+inoremap \|<CR> \|<CR>end<Esc>O
 inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 inoremap <expr> %>  strpart(getline('.'), col('.')-1, 2) == "%>" ? "\<Right><Right>" : "%>"
