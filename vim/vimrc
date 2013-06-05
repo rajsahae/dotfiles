@@ -174,6 +174,9 @@ nnoremap <leader>bp :bp<CR>
 nnoremap <leader><leader>w :w<CR>
 inoremap <leader><leader>c <ESC>
 
+" Remap for Gundo Plugin
+nnoremap <F5> :GundoToggle<CR>
+
 " key mappings for pair completion
 "inoremap ( ()<Left>
 "inoremap { {}<Left>
