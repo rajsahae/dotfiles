@@ -1,11 +1,11 @@
 @home = File.expand_path("~")
-@local_vimrc = File.expand_path(".vimrc")
+@local_vimrc = File.expand_path("vimrc")
 @local_vimdirs = Dir["*"].select{|e| File.directory? e }
 @vimrc = File.expand_path("~/.vimrc")
 @vim_dir = File.expand_path("~/.vim")
 @vimswaps = File.expand_path("~/.vimswaps")
 
-desc "install links for .vimrc to ~/.vimrc and vim dirs to ~/.vim"
+desc "install links for vimrc to ~/.vimrc and vim dirs to ~/.vim"
 task :install => :create_folders do
   File.symlink(@local_vimrc, @vimrc)
   @local_vimdirs.each do |dir|

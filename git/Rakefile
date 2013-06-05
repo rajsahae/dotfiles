@@ -1,7 +1,7 @@
-@local_gitconfig = File.expand_path(".gitconfig")
+@local_gitconfig = File.expand_path("gitconfig")
 @gitconfig = File.expand_path("~/.gitconfig")
 
-desc "install links for .gitconfig to ~/.gitconfig"
+desc "install links for gitconfig to ~/.gitconfig"
 task :install do
   File.symlink(@local_gitconfig, @gitconfig)
 end
