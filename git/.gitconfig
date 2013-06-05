@@ -23,3 +23,7 @@
   di = diff
   dc = diff --cached
   lo = log --oneline
+  where = tag -l '*release*' --contains
+
+[push]
+	default = tracking

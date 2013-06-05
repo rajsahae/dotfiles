@@ -178,3 +178,4 @@ inoremap \|<CR> \|<CR>end<Esc>O
 inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 inoremap <expr> %>  strpart(getline('.'), col('.')-1, 2) == "%>" ? "\<Right><Right>" : "%>"
+inoremap def<Space> def<CR>end<Esc><Up>A<Space>
