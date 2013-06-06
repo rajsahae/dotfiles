@@ -74,7 +74,9 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+  filetype on           " Enable filetype detection
+  filetype indent on    " Enable filetype-specific indenting
+  filetype plugin on    " Enable filetype-specific plugins
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -126,9 +128,6 @@ set autoindent		" always set autoindenting on
 "command WR w|!rake
 
 " Added by Raj Sahae 2012.01.03
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
 "compiler ruby         " Enable compiler support for ruby
 
 " Added by Raj Sahae 2012.01.11

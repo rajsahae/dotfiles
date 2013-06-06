@@ -7,3 +7,12 @@
 [submodule "vim/bundle/Gundo"]
 	path = vim/bundle/Gundo
 	url = git@github.com:vim-scripts/Gundo.git
+[submodule "vim/bundle/rake"]
+	path = vim/bundle/rake
+	url = git@github.com:tpope/vim-rake.git
+[submodule "vim/bundle/bundler"]
+	path = vim/bundle/bundler
+	url = git@github.com:tpope/vim-bundler.git
+[submodule "vim/bundle/ruby"]
+	path = vim/bundle/ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
