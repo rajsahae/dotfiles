@@ -91,6 +91,9 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 
+  au BufRead,BufNewFile *.pde set filetype=arduino
+  au BufRead,BufNewFile *.ino set filetype=arduino
+
   augroup END
 
 else
