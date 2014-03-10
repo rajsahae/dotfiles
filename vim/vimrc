@@ -80,7 +80,7 @@ if has("autocmd")
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+  autocmd!
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
@@ -93,6 +93,17 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 
+  " FileType autocommands
+  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType c nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+  autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
+
+  " Vimscript file settings ----- {{{
+  autocmd FileType vim setlocal foldmethod=marker
+  " }}}
+
   augroup END
 
 else
@@ -103,8 +114,7 @@ endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-	 	\ | wincmd p | diffthis
+"command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 " Added by Raj Sahae 2011.09.19
 set softtabstop=2	" set tabs to be 2 spaces instead of 8
@@ -113,6 +123,7 @@ set expandtab		" use spaces to insert a tab
 set sm				" search magic on
 set guifont=monospace\ 13	" Use monospaced font
 set number
+set wrap
 set ignorecase		" ignore case in a pattern
 set smartcase		" Ignore case when pattern is lowercase letters only
 "set vb				" Use visual bell instead of beeping
@@ -143,12 +154,16 @@ set foldlevel=2         " Set initial foldlevel to 2 => Added 2013.01.30
 
 " Added by Raj Sahae 2012.06.10
 let mapleader = ","     " Set leader to comma
+let maplocalleader = "-" " Set local leader to underscore
 colorscheme ir_black
+
 " Swap the  ' and ` keys
 nnoremap ' `
 nnoremap ` '
+
 " Single character insert
-nmap <Leader><Space> i_<Esc>r
+nnoremap <Leader><Space> i_<Esc>r
+
 runtime macros/matchit.vim    " Enable extended % matching
 set wildmenu                  " use the wildmenu for tab completion
 set wildmode=list:longest     " shell style completion
@@ -171,20 +186,71 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader><leader>w :w<CR>
-inoremap <leader><leader>c <ESC>
+"inoremap <leader><leader>c <ESC>
+" expand current buffer to whole screen
+nnoremap <leader>o <c-w><c-_><c-w><bar>
+" equal window sizes
+nnoremap <leader>= <c-w>=
+" open previous buffer to in new buffer on right
+nnoremap <leader>p :rightbelow vsplit bufname("#")<cr>
+" highlight trailing whitespace
+nnoremap <leader>tw :match Error /\v\s+$/<cr>
+" delete trailing whitespace
+nnoremap <leader>dw ma:%s/\v\s+$//<cr>`a
+" clear previous match pattern
+nnoremap <leader>mn :match none<cr>
+" grep mapping
+"nnoremap <leader>gr :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 
 " Remap for Gundo Plugin
 nnoremap <F5> :GundoToggle<CR>
 
 " key mappings for pair completion
 "inoremap ( ()<Left>
-inoremap { {}<Left>
+"inoremap { {}<Left>
 "inoremap <%= <%=%><Left><Left>
 "inoremap <% <%%><Left><Left>
 inoremap {<CR> {<CR>}<Esc>O
-"inoremap do<CR> do<CR>end<Esc>O
-"inoremap \|<CR> \|<CR>end<Esc>O
+inoremap do<CR> do<CR>end<Esc>O
+inoremap \|<CR> \|<CR>end<Esc>O
 "inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 "inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 "inoremap <expr> %>  strpart(getline('.'), col('.')-1, 2) == "%>" ? "\<Right><Right>" : "%>"
 "inoremap def<Space> def<CR>end<Esc><Up>A<Space>
+
+" Color everything after column 80 differently
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=235 guibg=DarkGrey
+
+" vimrc edit and sourcing shortcuts
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Remap jk for escaping from insert and visual mode.
+" Disable ESC and CTRL-C for now to relearn
+inoremap jk <esc>
+inoremap <esc> <nop>
+inoremap <c-c> <nop>
+vnoremap jk <esc>
+vnoremap <esc> <nop>
+vnoremap <c-c> <nop>
+
+
+"""" operator mappings {{{
+" in next parentheses
+onoremap in( :<c-u>normal! f(vi(<cr>
+" in last parentheses
+onoremap il( :<c-u>normal! F)vi(<cr>
+" around next parentheses
+onoremap an( :<c-u>normal! f(v%<cr>
+" around last parentheses
+onoremap al( :<c-u>normal! F(v%<cr>
+
+" in next set of braces
+onoremap in{ :<c-u>normal! f{vi{<cr>
+" in last set of braces
+onoremap il{ :<c-u>normal! F}vi{<cr>
+" around next set of braces
+onoremap an{ :<c-u>normal! f{v%<cr>
+" around last set of braces
+onoremap al{ :<c-u>normal! F{v%<cr>
