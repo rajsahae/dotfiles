@@ -154,7 +154,7 @@ set foldlevel=2         " Set initial foldlevel to 2 => Added 2013.01.30
 
 " Added by Raj Sahae 2012.06.10
 let mapleader = ","     " Set leader to comma
-let maplocalleader = "-" " Set local leader to underscore
+let maplocalleader = "-" " Set local leader to hyphen
 colorscheme ir_black
 
 " Swap the  ' and ` keys
@@ -199,8 +199,8 @@ nnoremap <leader>tw :match Error /\v\s+$/<cr>
 nnoremap <leader>dw ma:%s/\v\s+$//<cr>`a
 " clear previous match pattern
 nnoremap <leader>mn :match none<cr>
-" grep mapping
-"nnoremap <leader>gr :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+" Mapping for toggling line numbers
+nnoremap <leader>n :setlocal number!<cr>
 
 " Remap for Gundo Plugin
 nnoremap <F5> :GundoToggle<CR>
@@ -236,7 +236,7 @@ vnoremap <esc> <nop>
 vnoremap <c-c> <nop>
 
 
-"""" operator mappings {{{
+"""" operator mappings
 " in next parentheses
 onoremap in( :<c-u>normal! f(vi(<cr>
 " in last parentheses
