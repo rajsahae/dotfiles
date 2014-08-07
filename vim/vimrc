@@ -219,8 +219,8 @@ inoremap \|<CR> \|<CR>end<Esc>O
 "inoremap def<Space> def<CR>end<Esc><Up>A<Space>
 
 " Color everything after column 80 differently
-let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=235 guibg=DarkGrey
+"let &colorcolumn="80,".join(range(120,999),",")
+"highlight ColorColumn ctermbg=235 guibg=DarkGrey
 
 " vimrc edit and sourcing shortcuts
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
