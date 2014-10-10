@@ -2,6 +2,9 @@
   name = Raj Sahae
   email = rsahae@teslamotors.com
 
+[github]
+  user = rajsahae@gmail.com
+
 [color]
   branch = auto
   diff = auto
@@ -26,10 +29,11 @@
   dc = diff --cached
   lo = log --oneline
   where = tag -l '*release*' --contains
-	create-pull-request = !sh -c 'stash pull-request $0'
+  create-pull-request = !sh -c 'stash pull-request $0'
 
 [push]
   default = current
+
 [core]
   autocrlf = input
   editor = vim
@@ -37,3 +41,6 @@
 
 [apply]
   whitespace = fix
+
+[pull]
+  default = current
