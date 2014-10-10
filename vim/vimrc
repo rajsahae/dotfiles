@@ -51,7 +51,7 @@ map Q gq
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-	set mouse=a
+  set mouse=a
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -80,29 +80,29 @@ if has("autocmd")
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  autocmd!
+    autocmd!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+          \ if line("'\"") > 0 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
-  " FileType autocommands
-  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType c nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-  autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
+    " FileType autocommands
+    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType c nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
 
-  " Vimscript file settings ----- {{{
-  autocmd FileType vim setlocal foldmethod=marker
-  " }}}
+    " Vimscript file settings ----- {{{
+    autocmd FileType vim setlocal foldmethod=marker
+    " }}}
 
   augroup END
 
@@ -229,9 +229,11 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Remap jk for escaping from insert and visual mode.
 " Disable ESC and CTRL-C for now to relearn
 inoremap jk <esc>
+"inoremap <leader><leader><leader> <esc>
 inoremap <esc> <nop>
 inoremap <c-c> <nop>
 vnoremap jk <esc>
+"vnoremap <leader><leader><leader> <esc>
 vnoremap <esc> <nop>
 vnoremap <c-c> <nop>
 
