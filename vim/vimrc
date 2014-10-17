@@ -94,11 +94,11 @@ if has("autocmd")
           \ endif
 
     " FileType autocommands
-    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType c nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType c nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType cpp nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
+    autocmd FileType ruby nnoremap <buffer> <localleader>c I# <esc>
 
     " Vimscript file settings ----- {{{
     autocmd FileType vim setlocal foldmethod=marker
@@ -256,3 +256,6 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 onoremap an{ :<c-u>normal! f{v%<cr>
 " around last set of braces
 onoremap al{ :<c-u>normal! F{v%<cr>
+
+" c++ edit shortcuts
+nnoremap <leader>ss :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
