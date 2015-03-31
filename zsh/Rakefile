@@ -1,0 +1,12 @@
+@local_zshrc = File.expand_path("zshrc")
+@zshrc = File.expand_path("~/.zshrc")
+
+desc "install links for zshrc to ~/.zshrc"
+task :install do
+  File.symlink(@local_zshrc, @zshrc)
+end
+
+desc "clean up existing folders and links"
+task :clean do
+  FileUtils.rm @zshrc
+end
