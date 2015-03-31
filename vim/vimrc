@@ -235,8 +235,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Disable ESC and CTRL-C for now to relearn
 inoremap jk <esc>
 "inoremap <leader><leader><leader> <esc>
-inoremap <esc> <nop>
-inoremap <c-c> <nop>
+"inoremap <esc> <nop>
+"inoremap <c-c> <nop>
 vnoremap jk <esc>
 "vnoremap <leader><leader><leader> <esc>
 vnoremap <esc> <nop>
