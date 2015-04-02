@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# Make a directory and then CD into it
+function mkcd() {
+  mkdir -p $1
+  cd $1
+}
+
+# Custom aliases
+alias gva='vim `git ls-files`'
+alias gvac='vim `find . -name "*cpp" -o -name "*.h" -a ! -name "moc*"`'
+alias glodg='git log --oneline --decorate --graph'
+alias lf='ls -FAlh'
+alias theshire='rvm use 2.1.3; rvm gemset use theshire'
+alias shaggy='rvm use 2.1.3 && rvm gemset use shaggy'
+alias mkcdtoday='mkcd `date "+%Y-%m-%d_%H%M"`'
+alias cidu='nc -t cid 25956'
+alias icu='nc -t ic 28493'
+alias lt='ls -Flth'
+alias tmp='cd /tmp'
+alias glgp='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset" --abbrev-commit --date=relative'
+alias gf='git fetch'
+alias gfp='git fetch --prune'
+alias gbdm='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
+alias gbdrm='git branch -r --merged | grep -v -e "origin/HEAD" -e "origin/dev" -e "origin/master" | cut -d"/" -f2- | xargs -n1 git push origin --delete'
+alias logs="cd $HOME/logs"
+
+# Pull request aliases
+users='@mortiz @jewilliams @jdusaint @pkalra @cmiguelgorry @clansford'
+alias tidal_pr="stash pull-request dev $users"
+alias theshire_pr="stash pull-request master $users"
+alias jumpscripts_pr="stash pull-request master @ghuff @jehart @tzhang @bchu"
+
+guro() {
+  echo "gunzipping files"
+  find $PWD -name '*gz' -exec gunzip {} \; &>/dev/null
+
+  if ls -1R $PWD | grep 'screen*' &>/dev/null ; then
+    echo "renaming screenshots"
+    find $PWD -name 'screen*' -exec rename -S ':' '.' {} \; &>/dev/null
+
+    echo "autoleveling screenshots"
+    mkdir -p $PWD/autolevel
+    for img in `ls -1 $PWD/*/screen*`; do
+      bname=`basename $img`
+      autolevel -m 0.2 $img $PWD/autolevel/$bname &> /dev/null
+    done
+
+    echo "opening screenshots"
+    open `find $PWD/cid/ $PWD/ic/ -name 'screen*'` &>/dev/null
+    open `find $PWD/autolevel/ -name 'screen*'` &>/dev/null
+  fi
+}
+
+telnetgw() {
+  printf "\x12\x01" | socat - udp:gw:3500 2>&1 > /dev/null; socat - tcp:gw:telnet
+}
