@@ -1,0 +1,22 @@
+@basenames = [
+  'zshrc',
+  'aliases',
+  'stashconfig.yml'
+]
+
+@local = @basenames.map { |f| File.expand_path f }
+@links = @basenames.map { |f| File.expand_path "~/.#{f}" }
+
+desc "install links to home dir"
+task :install do
+  @local.size.times do |i|
+    File.symlink @local[i], @links[i]
+  end
+end
+
+desc "clean up existing folders and links"
+task :clean do
+  @links.each do |link|
+    FileUtils.rm link
+  end
+end

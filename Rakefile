@@ -1,7 +1,7 @@
-task :install => [:vim_install, :git_install, :zsh_install]
-task :clean => [:vim_clean, :git_clean, :zsh_clean]
+task :install => [:vim_install, :git_install, :sh_install]
+task :clean => [:vim_clean, :git_clean, :sh_clean]
 
-["git", "vim", "zsh"].each do |prog|
+["git", "vim", "sh"].each do |prog|
   ["clean", "install"].each do |action|
     task "#{prog}_#{action}".to_sym do
       Dir.chdir(prog) do |dir|
