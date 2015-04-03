@@ -29,7 +29,7 @@ alias logs="cd $HOME/logs"
 users='@mortiz @jewilliams @jdusaint @pkalra @cmiguelgorry @clansford'
 alias tidal_pr="stash pull-request dev $users"
 alias theshire_pr="stash pull-request master $users"
-alias jumpscripts_pr="stash pull-request master @ghuff @jehart @tzhang @bchu"
+alias jumpscripts_pr="stash pull-request master @ghuff @jehart @bchu"
 
 guro() {
   echo "gunzipping files"

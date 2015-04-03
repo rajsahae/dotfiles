@@ -92,3 +92,6 @@ export SCROLLVIEW_PATH=$HOME/dev/tesseract-ocr/java
 
 # Export mysteryinc env variable for tidal
 export MYSTERYINC_ROOT=$HOME/dev/mysteryinc
+
+# Github API Tokens
+export HOMEBREW_GITHUB_API_TOKEN=6c4cf20baf2afd6ddd4d6849aa15130655aafca8
