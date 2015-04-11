@@ -1,7 +1,8 @@
 @basenames = [
   'zshrc',
   'aliases',
-  'stashconfig.yml'
+  'stashconfig.yml',
+  'slate',
 ]
 
 @local = @basenames.map { |f| File.expand_path f }
