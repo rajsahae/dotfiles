@@ -1,0 +1,13 @@
+set imap_user        = "rajsahae@gmail.com"
+set imap_pass        = "macrosDana1667$"
+set smtp_url         = "smtp://user@smtp.gmail.com:587/"
+set smtp_pass        = "macrosDana1667$"
+set from             = "rajsahae@gmail.com"
+set realname         = "Raj Sahae"
+set folder           = "imaps://imap.gmail.com:993"
+set spoolfile        = "+INBOX"
+set postponed        = "+[Gmail]/Drafts"
+set header_cache     = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set move             = no

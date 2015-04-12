@@ -3,6 +3,7 @@
   'aliases',
   'stashconfig.yml',
   'slate',
+  'muttrc',
 ]
 
 @local = @basenames.map { |f| File.expand_path f }
