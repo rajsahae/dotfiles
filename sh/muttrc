@@ -1,4 +1,6 @@
 bind editor <space> noop
+set alias_file        = '~/.mutt/aliases.txt'
+set display_filter    = '$HOME/.mutt/aliases.sh'
 set edit_headers
 set editor            = "vim +/^$ ++1"
 set folder            = "imaps://imap.gmail.com/"
