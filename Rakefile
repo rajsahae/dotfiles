@@ -32,6 +32,10 @@ task :install_dotfiles do
     FileUtils.ln_s source, target
     FileUtils.chmod 0644, target
   end
+
+  # ensure that the msmtp file is the right permissions
+  FileUtils.chmod 0600, 'msmtprc' if @dotfiles.include? 'msmtprc'
+
 end
 
 # link vim folder
