@@ -102,8 +102,8 @@ bind index gg       first-entry
 bind index G        last-entry
 
 # Ctrl-R to mark all as read
-# macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
-macro index \Cr "<limit>~N<enter><clear-flag>N.<enter><limit>all<enter>" "mark all messages as read"
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+# macro index \Cr "<limit>~N<enter><clear-flag>N.<enter><limit>all<enter>" "mark all messages as read"
 
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
