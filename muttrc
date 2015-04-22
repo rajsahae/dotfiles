@@ -170,6 +170,11 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
+# Goobook Integration -----------------------------------------------------
+set query_command = "goobook query '%s'"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <tab> complete-query
+
 
 # SMTP Settings
 set from     = "rajsahae@gmail.com"
