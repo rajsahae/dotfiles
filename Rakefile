@@ -26,7 +26,11 @@ task :clean => [:clean_dotfiles, :clean_vim, :clean_mutt, :clean_bin]
 # Install home folder dotfiles
 task :install_dotfiles do
   @dotfiles.each do |file|
-    FileUtils.ln_s File.expand_path(file), File.join(@home, ".#{file}")
+    source = File.expand_path(file)
+    target = File.join(@home, ".#{file}")
+
+    FileUtils.ln_s source, target
+    FileUtils.chmod 0644, target
   end
 end
 
