@@ -72,7 +72,9 @@ def main(dest_box, is_gmail):
             sha = digest(f)
             data[sha].append(f)
         except IOError:
-            print('File %s does not exist' % f)
+            next
+            # This was causing a segfault for "missing" files
+            # print('File %s does not exist' % f)
 
     for sha in data:
         if is_gmail and len(data[sha]) > 1:
