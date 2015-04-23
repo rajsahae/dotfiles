@@ -1,19 +1,19 @@
 [general]
-ui = ttyui
-accounts = RajSahae
-pythonfile=/Users/rsahae/.mutt/offlineimap.py
-fsync = False
+ui         = ttyui
+accounts   = RajSahae
+pythonfile = /Users/rsahae/.mutt/offlineimap.py
+fsync      = False
 
 [Account RajSahae]
-localrepository = RajSahae-Local
+localrepository  = RajSahae-Local
 remoterepository = RajSahae-Remote
-status_backend = sqlite
-postsynchook = /usr/local/bin/notmuch new
+status_backend   = sqlite
+postsynchook     = /usr/local/bin/notmuch new
 
 [Repository RajSahae-Local]
-type = Maildir
+type         = Maildir
 localfolders = /Users/rsahae/.mail/rajsahae.gmail.com
-nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+nametrans    = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             'Flagged': '[Gmail]/Starred',
                             'Trash':   '[Gmail]/Trash',
                             'Archive': '[Gmail]/All Mail',
@@ -21,19 +21,22 @@ nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
 
 [Repository RajSahae-Remote]
 maxconnections = 1
-type = Gmail
-remoteuser = rajsahae@gmail.com
-remotepass = juzcycpxxvsnpegd
-realdelete = no
+type           = Gmail
+remoteuser     = rajsahae@gmail.com
+remotepasseval = mailpasswd('gmail')
+realdelete     = no
+
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Starred':   'Flagged',
                             '[Gmail]/Trash':     'Trash',
                             '[Gmail]/All Mail':  'Archive',
                             }.get(folder, folder)
+
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
                                              '[Gmail]/Chats',
                                              '[Gmail]/Sent Mail',
                                              ]
+
 sslcacertfile = /etc/openssl/cert.pem

@@ -1,16 +1,13 @@
 #!/usr/bin/python
-import re, subprocess
-def get_keychain_pass(account=None, server=None):
-    params = {
-        'security': '/usr/bin/security',
-        'command': 'find-internet-password',
-        'account': account,
-        'server': server,
-        'keychain': '/Users/sjl/Library/Keychains/login.keychain',
-    }
-    command = "sudo -u sjl %(security)s -v %(command)s -g -a %(account)s -s %(server)s %(keychain)s" % params
-    output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-    outtext = [l for l in output.splitlines()
-               if l.startswith('password: ')][0]
+import re
+from subprocess import check_output
+import os
+import datetime
 
-    return re.match(r'password: "(.*)"', outtext).group(1)
+def mailpasswd(acct):
+  print datetime.datetime.now()
+  path = "/Users/rsahae/.msmtp-%s.gpg" % acct
+  print path
+  args = ["/usr/local/bin/gpg", "--quiet", "--no-tty", "--decrypt", path]
+  print args
+  return check_output(args).strip()

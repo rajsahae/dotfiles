@@ -177,10 +177,13 @@ bind editor <tab> complete-query
 
 
 # SMTP Settings
-set from     = "rajsahae@gmail.com"
-set sendmail = "/usr/local/bin/msmtp -a rajsahae"
+set sendmail      = "/usr/local/bin/msmtp"
+set envelope_from = yes
 set sendmail_wait = 0
 unset record
+
+macro generic "<esc>1" ":set from=rajsahae@gmail.com"
+macro generic "<esc>2" ":set from=rsahae@teslamotors.com"
 
 
 # Viewing HTML Email --------------------------------------
