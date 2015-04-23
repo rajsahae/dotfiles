@@ -1,16 +1,16 @@
 [general]
 ui         = ttyui
-accounts   = RajSahae
+accounts   = Gmail
 pythonfile = /Users/rsahae/.mutt/offlineimap.py
 fsync      = False
 
-[Account RajSahae]
-localrepository  = RajSahae-Local
-remoterepository = RajSahae-Remote
+[Account Gmail]
+localrepository  = Gmail-Local
+remoterepository = Gmail-Remote
 status_backend   = sqlite
 postsynchook     = /usr/local/bin/notmuch new
 
-[Repository RajSahae-Local]
+[Repository Gmail-Local]
 type         = Maildir
 localfolders = /Users/rsahae/.mail/rajsahae.gmail.com
 nametrans    = lambda folder: {'Drafts':  '[Gmail]/Drafts',
@@ -19,7 +19,7 @@ nametrans    = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             'Archive': '[Gmail]/All Mail',
                             }.get(folder, folder)
 
-[Repository RajSahae-Remote]
+[Repository Gmail-Remote]
 maxconnections = 1
 type           = Gmail
 remoteuser     = rajsahae@gmail.com
