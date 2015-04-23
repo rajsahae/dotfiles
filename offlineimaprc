@@ -1,6 +1,6 @@
 [general]
 ui         = ttyui
-accounts   = Gmail
+accounts   = Gmail,Tesla
 pythonfile = /Users/rsahae/.mutt/offlineimap.py
 fsync      = False
 
@@ -15,12 +15,12 @@ type         = Maildir
 localfolders = /Users/rsahae/.mail/rajsahae.gmail.com
 nametrans    = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             'Flagged': '[Gmail]/Starred',
-                            'Trash':   '[Gmail]/Trash',
                             'Archive': '[Gmail]/All Mail',
+                            'Sent': '[Gmail]/Sent Mail',
                             }.get(folder, folder)
 
 [Repository Gmail-Remote]
-maxconnections = 1
+maxconnections = 3
 type           = Gmail
 remoteuser     = rajsahae@gmail.com
 remotepasseval = mailpasswd('gmail')
@@ -28,15 +28,34 @@ realdelete     = no
 
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Starred':   'Flagged',
-                            '[Gmail]/Trash':     'Trash',
                             '[Gmail]/All Mail':  'Archive',
+                            '[Gmail]/Sent Mail':  'Sent',
                             }.get(folder, folder)
 
-folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
-                                             '[Gmail]/Important',
-                                             '[Gmail]/Spam',
-                                             '[Gmail]/Chats',
-                                             '[Gmail]/Sent Mail',
-                                             ]
+folderfilter = lambda folder: folder in ['INBOX',
+                                         '[Gmail]/Drafts',
+                                         '[Gmail]/Starred',
+                                         '[Gmail]/All Mail',
+                                         '[Gmail]/Sent Mail',
+                                        ]
 
 sslcacertfile = /etc/openssl/cert.pem
+
+[Account Tesla]
+localrepository  = Tesla-Local
+remoterepository = Tesla-Remote
+status_backend   = sqlite
+postsynchook     = /usr/local/bin/notmuch new
+
+[Repository Tesla-Local]
+type         = Maildir
+localfolders = /Users/rsahae/.mail/rsahae.teslamotors.com
+
+[Repository Tesla-Remote]
+maxconnections = 3
+type           = IMAP
+remotehost     = mail.teslamotors.com
+remoteuser     = rsahae
+remotepasseval = mailpasswd('tesla')
+realdelete     = no
+sslcacertfile  = /etc/openssl/cert.pem
