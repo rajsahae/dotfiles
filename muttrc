@@ -58,17 +58,7 @@ mailboxes +rajsahae.gmail.com/INBOX \
           +rajsahae.gmail.com/Drafts \
           +rajsahae.gmail.com/Flagged \
           +rajsahae.gmail.com/Archive \
-          +rajsahae.gmail.com/Dictionary \
-          +rajsahae.gmail.com/Deals.3BTech \
-          +rajsahae.gmail.com/Deals.Groupons \
-          +rajsahae.gmail.com/Deals.LivingSocial \
-          +rajsahae.gmail.com/Deals.Lot18 \
-          +rajsahae.gmail.com/Forums.CodeProject \
-          +rajsahae.gmail.com/Forums.CyberCoders \
-          +rajsahae.gmail.com/Forums.Dice \
-          +rajsahae.gmail.com/Forums.Southwest \
-          +rajsahae.gmail.com/Forums.Vim \
-          +rajsahae.gmail.com/Unroll.me \
+          +rajsahae.gmail.com/Sent \
           +temporary/search \
 
 
@@ -155,7 +145,6 @@ bind attach <return> view-mailcap
 # Compose View Options -------------------------------
 set editor = "vim"                   # Use terminal Vim to compose email.
 set realname = "Raj Sahae"           # who am i?
-set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
 set edit_headers                     # show headers when composing
 set fast_reply                       # skip to compose when replying
