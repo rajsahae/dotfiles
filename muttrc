@@ -100,7 +100,7 @@ macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Macro 'a' to limit all for easy un-limiting
-macro index a "<limit>all<enter>" "show all messages (undo limit)"
+macro index A "<limit>all<enter>" "show all messages (undo limit)"
 
 # Urlview macro
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
