@@ -54,8 +54,9 @@ localfolders = /Users/rsahae/.mail/rsahae.teslamotors.com
 [Repository Tesla-Remote]
 maxconnections = 3
 type           = IMAP
-remotehost     = mail.teslamotors.com
+remotehost     = xmail.teslamotors.com
 remoteuser     = rsahae
 remotepasseval = mailpasswd('tesla')
 realdelete     = no
+ssl            = yes
 sslcacertfile  = /etc/openssl/cert.pem
