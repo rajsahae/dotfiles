@@ -1,0 +1,4 @@
+[DEFAULT]
+machine: google.com
+email: rajsahae@gmail.com
+passwordeval: gpg --no-tty --quiet --decrypt ~/.msmtp-gmail.gpg

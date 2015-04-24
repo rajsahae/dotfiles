@@ -1,3 +1,0 @@
-machine   google.com
-login     rajsahae@gmail.com
-password  gpg --no-tty --quiet --decrypt ~/.msmtp-gmail.gpg
