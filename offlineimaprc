@@ -60,3 +60,18 @@ remotepasseval = mailpasswd('tesla')
 realdelete     = no
 ssl            = yes
 sslcacertfile  = /etc/openssl/cert.pem
+folderfilter = lambda folder: folder not in ['Calendar',
+                                             'Contacts',
+                                             'Deleted Items',
+                                             'Journal',
+                                             'Junk E-Mail',
+                                             'RSS Feeds',
+                                             'Issues/Odometer Testing',
+                                             'Notes',
+                                             'Sync Issues',
+                                             'Sync Issues/Conflicts',
+                                             'Sync Issues/Local Failures',
+                                             'Sync Issues/Server Failures',
+                                             'Suggested Contacts',
+                                             'Tasks',
+                                            ]
