@@ -158,6 +158,7 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
+set reverse_name = yes               # Set from address based on message to field
 
 # Goobook Integration -----------------------------------------------------
 set query_command = "goobook query '%s'"
@@ -171,10 +172,11 @@ set envelope_from = yes
 set sendmail_wait = 0
 unset record
 
-macro generic "<esc>1" ":set from=rajsahae@gmail.com"
-macro generic "<esc>2" ":set from=rsahae@teslamotors.com"
+macro index,pager "<esc>1" ":set from=rajsahae@gmail.com"
+macro index,pager "<esc>2" ":set from=rsahae@teslamotors.com"
 
 
 # Viewing HTML Email --------------------------------------
 auto_view text/html                                  # view html automatically
 alternative_order text/plain text/enriched text/html # save html for last
+set reverse_alias = yes                              # Show alias names
