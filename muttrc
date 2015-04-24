@@ -27,7 +27,7 @@ unset mark_old           # read/new is good enough for me
 # Sidebar Patch --------------------------------------
 set sidebar_delim   = '  │'
 set sidebar_visible = yes
-set sidebar_width   = 30
+set sidebar_width   = 35
 color sidebar_new color221 color233
 
 
@@ -53,13 +53,13 @@ set mbox      = "+rajsahae.gmail.com/Archive"
 set postponed = "+rajsahae.gmail.com/Drafts"
 
 # Mailboxes to show in the sidebar.
-# mailboxes `echo ~/.mail/rajsahae.gmail.com/*`
-mailboxes +rajsahae.gmail.com/INBOX \
-          +rajsahae.gmail.com/Drafts \
-          +rajsahae.gmail.com/Flagged \
-          +rajsahae.gmail.com/Archive \
-          +rajsahae.gmail.com/Sent \
-          +temporary/search \
+mailboxes `echo ~/.mail/*/*`
+# mailboxes +rajsahae.gmail.com/INBOX \
+#           +rajsahae.gmail.com/Drafts \
+#           +rajsahae.gmail.com/Flagged \
+#           +rajsahae.gmail.com/Archive \
+#           +rajsahae.gmail.com/Sent \
+#           +temporary/search \
 
 
 # Index View Options ---------------------------------
@@ -83,6 +83,9 @@ macro index gd "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
 macro index gi "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
 macro index gf "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
 macro index gs "<change-folder>=rajsahae.gmail.com/Sent<enter>" "Go to sent mail"
+
+# Gmail style keyboard shortcuts for Tesla mailboxes
+macro index gt "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to Tesla inbox"
 
 # Shortcut for search folder
 macro index g/ "<change-folder>=temporary/search<enter>" "Go to search folder"
