@@ -24,6 +24,8 @@ alias gfp='git fetch --prune'
 alias gbdm='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
 alias gbdrm='git branch -r --merged | grep -v -e "origin/HEAD" -e "origin/dev" -e "origin/master" | cut -d"/" -f2- | xargs -n1 git push origin --delete'
 alias logs="cd $HOME/logs"
+alias swapclear='rm -f ~/.vimswaps/{,.}*'
+alias tailf='tail -f'
 
 # Pull request aliases
 users='@mortiz @jewilliams @jdusaint @pkalra @cmiguelgorry @clansford'
