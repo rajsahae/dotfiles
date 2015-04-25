@@ -6,7 +6,6 @@ set message_cachedir  = ~/.mutt/cache/bodies       # where to store bodies
 set certificate_file  = ~/.mutt/certificates       # where to store certificates
 set mailcap_path      = ~/.mutt/mailcap            # entries for filetypes
 set tmpdir            = ~/.mutt/temp               # where to keep temp files
-set signature         = ~/.mutt/sig                # my signature file
 
 
 # Basic Options ----------------------------------------------------------------
@@ -42,26 +41,6 @@ unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
-# Alternate email addresses.
-alternates raj.sahae@gmail.com
-
-# Default inbox.
-set spoolfile = "+rajsahae.gmail.com/INBOX"
-
-# Other special folders.
-set mbox      = "+rajsahae.gmail.com/Archive"
-set postponed = "+rajsahae.gmail.com/Drafts"
-
-# Mailboxes to show in the sidebar.
-# mailboxes `echo ~/.mail/*/*`
-mailboxes +rajsahae.gmail.com/INBOX \
-          +rajsahae.gmail.com/Drafts \
-          +rajsahae.gmail.com/Flagged \
-          +rajsahae.gmail.com/Archive \
-          +rajsahae.gmail.com/Sent \
-          +temporary/search \
-
-
 # Index View Options ---------------------------------
 set date_format = "%m/%d"
 set index_format = "[%Z]  %D  %-20.20F  %s"
@@ -76,16 +55,6 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 bind index R        group-reply
 bind index <space>  collapse-thread
 bind index <tab>    sync-mailbox
-
-# Gmail-style keyboard shortcuts
-macro index ga "<change-folder>=rajsahae.gmail.com/Archive<enter>" "Go to all mail"
-macro index gd "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
-macro index gi "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
-macro index gf "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
-macro index gs "<change-folder>=rajsahae.gmail.com/Sent<enter>" "Go to sent mail"
-
-# Gmail style keyboard shortcuts for Tesla mailboxes
-macro index gt "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to Tesla inbox"
 
 # Shortcut for search folder
 macro index g/ "<change-folder>=temporary/search<enter>" "Go to search folder"
@@ -160,7 +129,7 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
-set reverse_name = yes               # Set from address based on message to field
+
 
 # Goobook Integration -----------------------------------------------------
 set query_command = "goobook query '%s'"
@@ -170,15 +139,26 @@ macro index,pager A "<pipe-message>goobook add<return>" "add sender to google co
 
 # SMTP Settings
 set sendmail      = "/usr/local/bin/msmtp"
-set envelope_from = yes
 set sendmail_wait = 0
 unset record
-
-macro index,pager "<esc>1" ":set from=rajsahae@gmail.com"
-macro index,pager "<esc>2" ":set from=rsahae@teslamotors.com"
 
 
 # Viewing HTML Email --------------------------------------
 auto_view text/html                                  # view html automatically
 alternative_order text/plain text/enriched text/html # save html for last
 set reverse_alias = yes                              # Show alias names
+
+
+# Hook for switching to folders each account ------------------------------
+folder-hook rajsahae.gmail.com/*     source ~/.mutt/muttrc-gmail
+folder-hook rsahae.teslamotors.com/* source ~/.mutt/muttrc-tesla
+
+
+# Macros to switch accounts manually -------------------------------------
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/muttrc-gmail<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/muttrc-tesla<enter><change-folder>!<enter>'
+
+
+# Select gmail on startup
+source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
+source ~/.mutt/muttrc-gmail # Then load this to be the default

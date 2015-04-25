@@ -1,0 +1,28 @@
+set from      = rajsahae@gmail.com # from address
+set signature = ~/.mutt/sig-gmail # my signature file
+
+alternates raj.sahae@gmail.com # Alternate email addresses.
+
+# Default inbox.
+set spoolfile = "+rajsahae.gmail.com/INBOX"
+
+# Other special folders.
+set mbox      = "+rajsahae.gmail.com/Archive"
+set postponed = "+rajsahae.gmail.com/Drafts"
+
+# Mailboxes to show in the sidebar.
+mailboxes +rajsahae.gmail.com/INBOX \
+          +rajsahae.gmail.com/Drafts \
+          +rajsahae.gmail.com/Flagged \
+          +rajsahae.gmail.com/Archive \
+          +rajsahae.gmail.com/Sent \
+          +temporary/search \
+
+# Gmail-style keyboard shortcuts
+macro index gag "<change-folder>=rajsahae.gmail.com/Archive<enter>" "Go to all mail"
+macro index gdg "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
+macro index gig "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
+macro index gfg "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
+macro index gsg "<change-folder>=rajsahae.gmail.com/Sent<enter>" "Go to sent mail"
+
+color status green default

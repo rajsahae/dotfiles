@@ -1,0 +1,21 @@
+set from      = rsahae@teslamotors.com # from address
+set signature = ~/.mutt/sig-tesla # my signature file
+
+# Default inbox.
+set spoolfile = "+rsahae.teslamotors.com/INBOX"
+
+# Other special folders.
+set mbox      = "+rsahae.teslamotors.com/Archive"
+set postponed = "+rsahae.teslamotors.com/Drafts"
+
+# Mailboxes to show in the sidebar.
+mailboxes `echo ~/.mail/rsahae.teslamotors.com/*`
+
+# Gmail-style keyboard shortcuts
+macro index gat "<change-folder>=rsahae.teslamotors.com/Archive<enter>" "Go to all mail"
+macro index gdt "<change-folder>=rsahae.teslamotors.com/Drafts<enter>" "Go to drafts"
+macro index git "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to inbox"
+macro index gft "<change-folder>=rsahae.teslamotors.com/Flagged<enter>" "Go to starred messages"
+macro index gst "<change-folder>=rsahae.teslamotors.com/Sent<enter>" "Go to sent mail"
+
+color status red default
