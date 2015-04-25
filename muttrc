@@ -33,6 +33,8 @@ color sidebar_new color221 color233
 macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
+mailboxes +temporary/search
+
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
@@ -135,12 +137,6 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 
-# Goobook Integration -----------------------------------------------------
-set query_command = "goobook query '%s'"
-bind editor <tab> complete-query
-macro index,pager A "<pipe-message>goobook add<return>" "add sender to google contacts"
-
-
 # SMTP Settings
 set sendmail      = "/usr/local/bin/msmtp"
 set sendmail_wait = 0
@@ -164,5 +160,5 @@ macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/muttrc-tesla<enter
 
 
 # Select gmail on startup
-source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
 source ~/.mutt/muttrc-gmail # Then load this to be the default
+source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
