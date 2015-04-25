@@ -105,7 +105,7 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro index a "<limit>all<enter>" "show all messages (undo limit)"
 
 # w3m macro for viewing links in text pager
-macro index,pager \cB ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
+macro index,pager \Cw ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
 
 # notmuch macro
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
