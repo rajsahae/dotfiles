@@ -27,7 +27,11 @@ unset mark_old           # read/new is good enough for me
 set sidebar_delim   = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 35
+
 color sidebar_new color221 color233
+
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
 
 # Status Bar -----------------------------------------
