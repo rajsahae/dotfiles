@@ -53,13 +53,13 @@ set mbox      = "+rajsahae.gmail.com/Archive"
 set postponed = "+rajsahae.gmail.com/Drafts"
 
 # Mailboxes to show in the sidebar.
-mailboxes `echo ~/.mail/*/*`
-# mailboxes +rajsahae.gmail.com/INBOX \
-#           +rajsahae.gmail.com/Drafts \
-#           +rajsahae.gmail.com/Flagged \
-#           +rajsahae.gmail.com/Archive \
-#           +rajsahae.gmail.com/Sent \
-#           +temporary/search \
+# mailboxes `echo ~/.mail/*/*`
+mailboxes +rajsahae.gmail.com/INBOX \
+          +rajsahae.gmail.com/Drafts \
+          +rajsahae.gmail.com/Flagged \
+          +rajsahae.gmail.com/Archive \
+          +rajsahae.gmail.com/Sent \
+          +temporary/search \
 
 
 # Index View Options ---------------------------------
@@ -96,17 +96,16 @@ bind index G        last-entry
 
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
-# macro index \Cr "<limit>~N<enter><clear-flag>N.<enter><limit>all<enter>" "mark all messages as read"
 
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Macro 'a' to limit all for easy un-limiting
-macro index A "<limit>all<enter>" "show all messages (undo limit)"
+macro index a "<limit>all<enter>" "show all messages (undo limit)"
 
-# Urlview macro
-macro pager \Cu "|urlview<enter>" "call urlview to open links"
+# w3m macro for viewing links in text pager
+macro index,pager \cB ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
 
 # notmuch macro
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
@@ -165,8 +164,8 @@ set reverse_name = yes               # Set from address based on message to fiel
 
 # Goobook Integration -----------------------------------------------------
 set query_command = "goobook query '%s'"
-macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
 bind editor <tab> complete-query
+macro index,pager A "<pipe-message>goobook add<return>" "add sender to google contacts"
 
 
 # SMTP Settings
