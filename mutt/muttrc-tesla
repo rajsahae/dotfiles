@@ -9,14 +9,15 @@ set spoolfile = "+rsahae.teslamotors.com/INBOX"
 # Other special folders.
 set mbox      = "+rsahae.teslamotors.com/Archive"
 set postponed = "+rsahae.teslamotors.com/Drafts"
+set record    = "+rsahae.teslamotors.com/Sent Items"
 
 # Mailboxes to show in the sidebar.
 mailboxes '+rsahae.teslamotors.com/INBOX'                      \
+          '+rsahae.teslamotors.com/Sent Items'                 \
           '+rsahae.teslamotors.com/Archive'                    \
           '+rsahae.teslamotors.com/Drafts'                     \
           '+rsahae.teslamotors.com/Drive Notes'                \
           '+rsahae.teslamotors.com/For Later'                  \
-          '+rsahae.teslamotors.com/Sent Items'                 \
           '+rsahae.teslamotors.com/Code Review'                \
           '+rsahae.teslamotors.com/Code Review.Firmware'       \
           '+rsahae.teslamotors.com/Code Review.Jump Scripts'   \
@@ -34,12 +35,13 @@ mailboxes '+rsahae.teslamotors.com/INBOX'                      \
           '+rsahae.teslamotors.com/Misc.Smoke It'              \
           '+rsahae.teslamotors.com/Misc.WAH'                   \
           '+rsahae.teslamotors.com/Platform Firmware Releases' \
-          '+rsahae.teslamotors.com/Outbox'                     \
 
+# SMTP Settings
+set sendmail      = "/usr/local/bin/msmtp -a tesla"
 
 # Gmail-style keyboard shortcuts
+bind editor <space> noop
+macro index git "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to inbox"
+macro index gst "<change-folder>=rsahae.teslamotors.com/Sent Items<enter>" "Go to sent mail"
 macro index gat "<change-folder>=rsahae.teslamotors.com/Archive<enter>" "Go to all mail"
 macro index gdt "<change-folder>=rsahae.teslamotors.com/Drafts<enter>" "Go to drafts"
-macro index git "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to inbox"
-macro index gft "<change-folder>=rsahae.teslamotors.com/Flagged<enter>" "Go to starred messages"
-macro index gst "<change-folder>=rsahae.teslamotors.com/Sent<enter>" "Go to sent mail"
