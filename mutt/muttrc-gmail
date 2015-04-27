@@ -24,11 +24,11 @@ mailboxes +rajsahae.gmail.com/INBOX   \
 set sendmail      = "/usr/local/bin/msmtp -a gmail"
 
 # Gmail-style keyboard shortcuts
-macro index gig "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
-macro index gsg "<change-folder>=rajsahae.gmail.com/Sent<enter>" "Go to sent mail"
-macro index gag "<change-folder>=rajsahae.gmail.com/Archive<enter>" "Go to all mail"
-macro index gfg "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
-macro index gdg "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
+macro index,pager gig "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
+macro index,pager gsg "<change-folder>=rajsahae.gmail.com/Sent<enter>" "Go to sent mail"
+macro index,pager gag "<change-folder>=rajsahae.gmail.com/Archive<enter>" "Go to all mail"
+macro index,pager gfg "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
+macro index,pager gdg "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
 
 
 # Goobook Integration -----------------------------------------------------

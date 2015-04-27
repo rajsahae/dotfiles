@@ -41,7 +41,7 @@ set sendmail      = "/usr/local/bin/msmtp -a tesla"
 
 # Gmail-style keyboard shortcuts
 bind editor <space> noop
-macro index git "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to inbox"
-macro index gst "<change-folder>=rsahae.teslamotors.com/Sent Items<enter>" "Go to sent mail"
-macro index gat "<change-folder>=rsahae.teslamotors.com/Archive<enter>" "Go to all mail"
-macro index gdt "<change-folder>=rsahae.teslamotors.com/Drafts<enter>" "Go to drafts"
+macro index,pager git "<change-folder>=rsahae.teslamotors.com/INBOX<enter>" "Go to inbox"
+macro index,pager gst "<change-folder>=rsahae.teslamotors.com/Sent Items<enter>" "Go to sent mail"
+macro index,pager gat "<change-folder>=rsahae.teslamotors.com/Archive<enter>" "Go to all mail"
+macro index,pager gdt "<change-folder>=rsahae.teslamotors.com/Drafts<enter>" "Go to drafts"
