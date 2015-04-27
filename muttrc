@@ -161,7 +161,7 @@ source ~/.mutt/muttrc-gmail # Then load this to be the default
 source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
 
 # Custom colors
-color index red   black ~F
+color index red   white ~F
 color index black green ~N
 color index blue  white ~T
 color index black red   ~D
