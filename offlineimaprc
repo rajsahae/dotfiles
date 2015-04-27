@@ -1,8 +1,9 @@
 [general]
-ui         = ttyui
-accounts   = Gmail,Tesla
-pythonfile = /Users/rsahae/.mutt/offlineimap.py
-fsync      = False
+ui          = ttyui
+accounts    = Gmail,Tesla
+pythonfile  = /Users/rsahae/.mutt/offlineimap.py
+fsync       = False
+socktimeout = 120
 
 [Account Gmail]
 localrepository  = Gmail-Local
