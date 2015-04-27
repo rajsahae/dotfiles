@@ -72,8 +72,8 @@ bind index G        last-entry
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Saner copy/move dialogs
-macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
-macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index,pager C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index,pager M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Macro 'a' to limit all for easy un-limiting
 macro index a "<limit>all<enter>" "show all messages (undo limit)"
@@ -159,3 +159,9 @@ macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/muttrc-tesla<enter
 # Select gmail on startup
 source ~/.mutt/muttrc-gmail # Then load this to be the default
 source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
+
+# Custom colors
+color index red   black ~F
+color index black green ~N
+color index blue  white ~T
+color index black red   ~D
