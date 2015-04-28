@@ -69,7 +69,9 @@ bind index gg       first-entry
 bind index G        last-entry
 
 # Ctrl-R to mark all as read
-macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+macro index ,r "<limit>~N<enter><tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><limit>all<enter>" "mark all messages as read"
+macro index ,n "<limit>~N<enter>" "show new messages"
+macro generic ,s "<enter-command>source ~/.muttrc<enter>"
 
 # Saner copy/move dialogs
 macro index,pager C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
