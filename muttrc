@@ -137,7 +137,7 @@ unset mime_forward                   # forward attachments as part of body
 
 
 # SMTP Settings
-set sendmail_wait = 0
+set sendmail_wait = -1               # send mail in the background
 
 
 # Viewing HTML Email --------------------------------------
