@@ -47,4 +47,4 @@ macro index,pager gat "<change-folder>=rsahae.teslamotors.com/Archive<enter>" "G
 macro index,pager gdt "<change-folder>=rsahae.teslamotors.com/Drafts<enter>" "Go to drafts"
 
 # Set Delete to move mail to the Archive
-macro index,pager d "<clear-flag>N<previous-entry><save-message>=rsahae.teslamotors.com/Archive<enter>" "Archive message"
+macro index,pager d "<clear-flag>*<previous-entry><save-message>=rsahae.teslamotors.com/Archive<enter>" "Archive message"
