@@ -30,6 +30,8 @@ macro index,pager gag "<change-folder>=rajsahae.gmail.com/Archive<enter>" "Go to
 macro index,pager gfg "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
 macro index,pager gdg "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
 
+# Set Delete to it's normal functionality
+bind index,pager d delete-message
 
 # Goobook Integration -----------------------------------------------------
 set query_command = "goobook query '%s'"
