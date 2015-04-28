@@ -48,3 +48,7 @@ macro index,pager gdt "<change-folder>=rsahae.teslamotors.com/Drafts<enter>" "Go
 
 # Set Delete to move mail to the Archive
 macro index,pager d "<clear-flag>!<previous-entry><clear-flag>N<previous-entry><save-message>=rsahae.teslamotors.com/Archive<enter>" "Archive message"
+
+# Inbox specific copy/move dialogs
+macro index,pager Ci "<copy-message>=rsahae.teslamotors.com/INBOX<enter>" "copy a message to Inbox"
+macro index,pager Mi "<save-message>=rsahae.teslamotors.com/INBOX<enter>" "move a message to Inbox"
