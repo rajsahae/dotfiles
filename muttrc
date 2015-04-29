@@ -110,6 +110,7 @@ bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
+macro pager <tab> <sync-mailbox>
 
 
 # Postpone/Recall Bindings -----------------------------
