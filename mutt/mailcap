@@ -34,6 +34,7 @@ text/html; w3m -I %{charset} -T text/html; copiousoutput;
 # Text based files
 text/csv; vim %s
 text/txt; vim %s
+text/plain; vim %s
 
 # Unidentified.
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-" 
