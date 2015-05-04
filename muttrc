@@ -169,4 +169,6 @@ color index black green ~N
 color index blue  white ~T
 color index black red   ~D
 
-color header black white 'Subject:'
+color header cyan black 'Subject:'
+color header yellow black 'From:'
+color header magenta black 'Date:'
