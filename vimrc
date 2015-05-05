@@ -265,3 +265,7 @@ onoremap al{ :<c-u>normal! F{v%<cr>
 
 " c++ edit shortcuts
 nnoremap <leader>ss :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" paste/nopaste shortcuts
+nnoremap <leader>sp :set paste<CR>
+nnoremap <leader>np :set nopaste<CR>
