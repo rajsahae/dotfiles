@@ -53,3 +53,8 @@ macro pager d "<clear-flag>!<clear-flag>N<save-message>=rsahae.teslamotors.com/A
 # Inbox specific copy/move dialogs
 macro index,pager ,ci "<copy-message>=rsahae.teslamotors.com/INBOX<enter>" "copy a message to Inbox"
 macro index,pager ,mi "<save-message>=rsahae.teslamotors.com/INBOX<enter>" "move a message to Inbox"
+
+# Address Book To Mutt Integration -----------------------------------------------------
+set query_command = "~/.mutt/abtomutt '%s'"
+bind editor <tab> complete-query
+bind index,pager A noop # Remove the binding for A set by muttrc-gmail
