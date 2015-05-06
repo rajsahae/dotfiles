@@ -167,10 +167,10 @@ source ~/.mutt/muttrc-gmail # Then load this to be the default
 source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
 
 # Custom colors
-color index red   black ~F
-color index black green ~N
-color index blue  white ~T
-color index black red   ~D
+color index color9  black ~F # In my terminal, color9 is ANSI Bright Red
+color index black   green ~N
+color index blue    white ~T
+color index black   red   ~D
 
 color header cyan black 'Subject:'
 color header yellow black 'From:'
