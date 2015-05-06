@@ -75,9 +75,10 @@ macro index g/ "<change-folder>=temporary/search<enter>" "Go to search folder"
 bind index gg       first-entry
 bind index G        last-entry
 
-# Ctrl-R to mark all as read
+# Comma based shortcuts (mostly for the index)
 macro index ,r "<limit>~N<enter><tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><limit>all<enter>" "mark all messages as read"
 macro index ,n "<limit>~N<enter>" "show new messages"
+macro index ,f "<limit>~F<enter>" "show flagged messages"
 macro generic ,s "<enter-command>source ~/.muttrc<enter>"
 
 # Saner copy/move dialogs
