@@ -23,10 +23,17 @@ unset mark_old           # read/new is good enough for me
 unset move               # gmail does that
 
 
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
 # Sidebar Patch --------------------------------------
-set sidebar_delim   = '  │'
-set sidebar_visible = yes
-set sidebar_width   = 35
+set sidebar_delim     = ' │'
+set sidebar_visible   = yes
+set sidebar_width     = 40
+set sidebar_format    = '[%2F] %B%* (%N)'
+set sidebar_shortpath = yes
 
 color sidebar_new color221 color233
 
@@ -85,12 +92,6 @@ macro index,pager \Cw ": set pipe_decode\n|w3m\n: unset pipe_decode\n" "call w3m
 
 # notmuch macro
 macro index S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
-
-
-# Sidebar Navigation ---------------------------------
-bind index,pager <down>   sidebar-next
-bind index,pager <up>     sidebar-prev
-bind index,pager <right>  sidebar-open
 
 
 # Pager View Options ---------------------------------
