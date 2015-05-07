@@ -1,6 +1,6 @@
 ---
 stash_url: https://stash.teslamotors.com
 username: rsahae
-password: ferment843?Tripel
+passwordeval: gpg --no-tty --quiet --decrypt ~/.msmtp-tesla.gpg
 open: true
 ssl_no_verify: true
