@@ -62,11 +62,14 @@ realdelete     = no
 ssl            = yes
 sslcacertfile  = /etc/openssl/cert.pem
 folderfilter = lambda folder: folder not in ['Calendar',
+                                             'Code Review',
                                              'Contacts',
                                              'Deleted Items',
+                                             'Issues',
                                              'Journal',
                                              'Junk E-Mail',
                                              'RSS Feeds',
+                                             'Misc',
                                              'Notes',
                                              'Outbox',
                                              'Sync Issues',
