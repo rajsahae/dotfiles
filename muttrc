@@ -11,8 +11,8 @@ set tmpdir            = ~/.mutt/temp               # where to keep temp files
 # Basic Options ----------------------------------------------------------------
 set mbox_type  = Maildir # mailbox type
 set wait_key   = no      # shut up, mutt
-set timeout    = 0       # idle time before scanning
-set mail_check = 5       # minimum time between scans
+set timeout    = 0       # Never timeout
+set mail_check = 60      # minimum time between scans
 set delete               # don't ask, just do
 set quit                 # don't ask, just do!!
 set beep_new             # bell on new mails
@@ -29,10 +29,10 @@ bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim     = ' │'
+set sidebar_delim     = '│'
 set sidebar_visible   = yes
 set sidebar_width     = 40
-set sidebar_format    = '[%2F] %B%* (%N)'
+set sidebar_format    = "%-28B %?F?[%F]?%* %?N?(%N)?"
 set sidebar_shortpath = yes
 
 color sidebar_new color221 color233
@@ -79,6 +79,8 @@ bind index G        last-entry
 macro index ,r "<limit>~N<enter><tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><limit>all<enter>" "mark all messages as read"
 macro index ,n "<limit>~N<enter>" "show new messages"
 macro index ,f "<limit>~F<enter>" "show flagged messages"
+
+# Source muttrc file
 macro generic ,s "<enter-command>source ~/.muttrc<enter>"
 
 # Saner copy/move dialogs
@@ -166,11 +168,19 @@ macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/muttrc-tesla<enter
 source ~/.mutt/muttrc-gmail # Then load this to be the default
 source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
 
-# Custom colors
+# Custom colors based on message flags
 color index color9  black ~F # In my terminal, color9 is ANSI Bright Red
 color index black   green ~N
 color index blue    white ~T
 color index black   red   ~D
+
+# Color anything by my manager or team members in magenta
+# color index magenta black "Martin Menzel"
+# color index magenta black "Chandler Miguelgorry"
+# color index magenta black "Michael Ortiz"
+# color index magenta black "Allen Chiang"
+# color index magenta black "Parag Kalra"
+# color index magenta black "Conor Lansford"
 
 color header cyan black 'Subject:'
 color header yellow black 'From:'
