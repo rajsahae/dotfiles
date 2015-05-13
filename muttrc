@@ -92,6 +92,9 @@ macro index,pager M "<save-message>?<toggle-mailboxes>" "move a message to a mai
 # Macro 'a' to limit all for easy un-limiting
 macro index a "<limit>all<enter>" "show all messages (undo limit)"
 
+# Urlview macro
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
 # w3m macro for viewing links in text pager
 macro index,pager \Cw ": set pipe_decode\n|w3m\n: unset pipe_decode\n" "call w3m to extract URLs out of a message"
 
