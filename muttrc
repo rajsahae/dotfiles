@@ -34,13 +34,13 @@ bind index,pager <right>  sidebar-open
 set sidebar_delim     = '│'
 set sidebar_visible   = yes
 set sidebar_width     = 40
-set sidebar_format    = "%-28B %?F?[%F]?%* %?N?(%N)?"
+set sidebar_format    = "%?F?%3!&   ? %-28B%* %?N?(%N)?"
 set sidebar_shortpath = yes
 
 color sidebar_new color221 color233
 
-macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
-macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+macro index \Cb '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager \Cb '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
 mailboxes +temporary/search
 
@@ -58,7 +58,7 @@ hdr_order from: to: cc: date: subject:  # and in this order
 
 # Index View Options ---------------------------------
 set date_format = "%m/%d/%Y %H:%M:%S"
-set index_format = "[%Z]  %D  %-20.20F  %s"
+set index_format = "%?X?@& ?[%Z]  %D  %-20.20F  %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
