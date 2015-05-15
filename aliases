@@ -28,10 +28,10 @@ alias swapclear='rm -f ~/.vimswaps/{,.}*'
 alias tailf='tail -f'
 
 # Pull request aliases
-users='@mortiz @jewilliams @jdusaint @pkalra @cmiguelgorry @clansford'
+users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser'
 alias tidal_pr="stash pull-request dev $users"
 alias theshire_pr="stash pull-request master $users"
-alias jumpscripts_pr="stash pull-request master @ghuff @jehart @bchu"
+alias jumpscripts_pr="stash pull-request master @ghuff @jehart @bchu @tzhang"
 
 guro() {
   echo "gunzipping files"
