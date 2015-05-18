@@ -13,7 +13,7 @@ set mbox_type  = Maildir # mailbox type
 set wait_key   = no      # shut up, mutt
 set timeout    = 0       # Never timeout
 set mail_check = 30      # minimum time between scans
-set read_inc   = 10000   # This makes loading/searching big archives faster
+set read_inc   = 0       # This makes loading/searching big archives faster
 set write_inc  = 1000    # This makes updating big archives faster
 set delete               # don't ask, just do
 set quit                 # don't ask, just do!!
