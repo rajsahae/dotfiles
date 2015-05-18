@@ -100,6 +100,7 @@ macro index,pager,attach \Cw ": unset pipe_decode\n|w3m -T text/html\n: set pipe
 
 # notmuch macro
 macro index S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+macro index \Cs "<shell-escape>rm -rf ~/.mail/temporary/search/cur/*<enter><refresh>" "Clear search"
 
 
 # Pager View Options ---------------------------------
