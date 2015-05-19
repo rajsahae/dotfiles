@@ -35,5 +35,4 @@ bind index,pager d delete-message
 
 # Goobook Integration -----------------------------------------------------
 set query_command = "goobook query '%s'"
-bind editor <tab> complete-query
 macro index,pager A "<pipe-message>goobook add<return>" "add sender to google contacts"

@@ -7,6 +7,7 @@ set certificate_file  = ~/.mutt/certificates       # where to store certificates
 set mailcap_path      = ~/.mutt/mailcap            # entries for filetypes
 set tmpdir            = ~/.mutt/temp               # where to keep temp files
 
+source $alias_file
 
 # Basic Options ----------------------------------------------------------------
 set mbox_type  = Maildir # mailbox type
@@ -68,7 +69,7 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Key Bindings ---------------------------------
 bind index R        group-reply
-bind index <tab>    sync-mailbox
+macro index,pager ,cc "<sync-mailbox>"
 
 # Shortcut for search folder
 macro index g/ "<change-folder>=temporary/search<enter>" "Go to search folder"
@@ -83,7 +84,7 @@ macro index ,n "<limit>~N<enter>" "show new messages"
 macro index ,f "<limit>~F<enter>" "show flagged messages"
 
 # Source muttrc file
-macro generic ,s "<enter-command>source ~/.muttrc<enter>"
+macro pager,generic ,s "<enter-command>source ~/.muttrc<enter>"
 
 # Saner copy/move dialogs
 macro index,pager C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
@@ -122,7 +123,6 @@ bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
-macro pager <tab> <sync-mailbox>
 
 
 # Postpone/Recall Bindings -----------------------------
