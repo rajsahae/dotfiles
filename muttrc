@@ -90,6 +90,7 @@ macro index,pager C "<copy-message>?<toggle-mailboxes>" "copy a message to a mai
 macro index,pager M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Macro 'a' to limit all for easy un-limiting
+macro index,pager \Ca "<create-alias>"
 macro index a "<limit>all<enter>" "show all messages (undo limit)"
 
 # Urlview macro
