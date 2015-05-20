@@ -69,7 +69,8 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Key Bindings ---------------------------------
 bind index R        group-reply
-macro index,pager ,cc "<sync-mailbox>"
+bind index <tab>    sync-mailbox
+bind pager <tab>    sync-mailbox
 
 # Shortcut for search folder
 macro index g/ "<change-folder>=temporary/search<enter>" "Go to search folder"
