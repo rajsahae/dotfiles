@@ -83,6 +83,7 @@ bind index G        last-entry
 macro index ,r "<limit>~N<enter><tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><limit>all<enter>" "mark all messages as read"
 macro index ,n "<limit>~N<enter>" "show new messages"
 macro index ,f "<limit>~F<enter>" "show flagged messages"
+macro index ,t "<limit>~T<enter>" "show tagged messages"
 
 # Source muttrc file
 macro pager,generic ,s "<enter-command>source ~/.muttrc<enter>"
