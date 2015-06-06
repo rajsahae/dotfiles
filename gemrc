@@ -4,5 +4,6 @@
 :sources:
 - https://rubygems.org/
 - http://gems.tools.teslamotors.com/
+- https://artifactory.dev.teslamotors.com/artifactory/api/gems/tesla-gems-local/
 :update_sources: true
 :verbose: true
