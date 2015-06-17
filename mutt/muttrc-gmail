@@ -36,3 +36,7 @@ bind index,pager d delete-message
 # Goobook Integration -----------------------------------------------------
 set query_command = "goobook query '%s'"
 macro index,pager A "<pipe-message>goobook add<return>" "add sender to google contacts"
+
+# Hook for switching sort type when switching to sent folder
+folder-hook "+rajsahae.gmail.com/*"     set sort=threads
+folder-hook "+rajsahae.gmail.com/Sent"  set sort=reverse-date

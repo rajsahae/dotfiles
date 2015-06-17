@@ -71,3 +71,7 @@ macro index,pager ,mi "<save-message>=rsahae.teslamotors.com/INBOX<enter>" "move
 # set query_command = "~/.mutt/abtomutt '%s'"
 set query_command = ""
 bind index,pager A noop # Remove the binding for A set by muttrc-gmail
+
+# Hook for switching sort type when switching to sent folder
+folder-hook "+rsahae.teslamotors.com/*"           set sort=threads
+folder-hook "+rsahae.teslamotors.com/Sent Items"  set sort=reverse-date
