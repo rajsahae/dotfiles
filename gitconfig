@@ -40,7 +40,7 @@
   preloadindex = true
 
 [apply]
-  whitespace = fix
+	whitespace = fix
 
 [pull]
   default = current

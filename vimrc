@@ -109,6 +109,8 @@ if has("autocmd")
     autocmd FileType vim setlocal foldmethod=marker
     " }}}
 
+    autocmd FileType mail setlocal fo+=aw
+
   augroup END
 
 else
