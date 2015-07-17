@@ -36,5 +36,11 @@ text/csv; vim %s
 text/txt; vim %s
 text/plain; vim %s
 
+# Quicktime movie
+video/quicktime; ~/.mutt/view_attachment.sh %s mov
+
+# compressed files
+application/x-compressed; tar tf %s; copiousoutput;
+
 # Unidentified.
-application/octet-stream; ~/.mutt/view_attachment.sh %s "-" 
+application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
