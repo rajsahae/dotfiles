@@ -180,18 +180,9 @@ source ~/.mutt/muttrc-gmail # Then load this to be the default
 source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
 
 # Custom colors based on message flags
-color index color9  default ~F # In my terminal, color9 is ANSI Bright Red
-color index yellow   default ~N
-color index blue    white ~T
-color index black   red   ~D
-
-# Color anything by my manager or team members in magenta
-# color index magenta black "Martin Menzel"
-# color index magenta black "Chandler Miguelgorry"
-# color index magenta black "Michael Ortiz"
-# color index magenta black "Allen Chiang"
-# color index magenta black "Parag Kalra"
-# color index magenta black "Conor Lansford"
-
-color header cyan black '.*'
-color body   magenta black 'raj|Raj|sahae|Sahae|rsahae|Rsahae|RSahae'
+color index   color9  default ~F # In my terminal, color9 is ANSI Bright Red
+color index   yellow  default ~N
+color index   blue    white   ~T
+color index   black   red     ~D
+color header  cyan    default '.*'
+color body    magenta default 'raj|Raj|sahae|Sahae|rsahae|Rsahae|RSahae'
