@@ -37,6 +37,7 @@ set gcr=a:blinkon0      " Disable cursor blink
 set incsearch		" do incremental searching
 set visualbell          " No sounds
 set autoread            " Autoload files changed outside of Vim
+set tags+=~/.tags       " Add home tags file
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -271,3 +272,15 @@ nnoremap <leader>ss :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " paste/nopaste shortcuts
 nnoremap <leader>sp :set paste<CR>
 nnoremap <leader>np :set nopaste<CR>
+
+function! ConvertInternalDatXML()
+  v/<option\|<value/d
+  %s/^.*<option key="//
+  %s/^.*<value [^>]*>/    /
+  %s/<\/value>.*$//
+  %s/^.*type="boolean".*$/    0    1/
+  %s/^.*<value>/    /
+  g/type="enum/d
+  g/values/d
+  %s/".*$//
+endfunction
