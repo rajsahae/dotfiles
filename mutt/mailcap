@@ -41,6 +41,7 @@ video/quicktime; ~/.mutt/view_attachment.sh %s mov
 
 # compressed files
 application/x-compressed; tar tf %s; copiousoutput;
+application/x-tar-gz; tar tf %s; copiousoutput;
 
 # Unidentified.
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
