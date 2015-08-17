@@ -11,6 +11,9 @@ set mbox      = "+rsahae.teslamotors.com/Archive"
 set postponed = "+rsahae.teslamotors.com/Drafts"
 set record    = "+rsahae.teslamotors.com/Sent Items"
 
+# BCC myself on emails
+my_hdr Bcc: rsahae@teslamotors.com
+
 # Mailboxes to show in the sidebar.
 mailboxes '+rsahae.teslamotors.com/INBOX'                      \
           '+rsahae.teslamotors.com/Sent Items'                 \

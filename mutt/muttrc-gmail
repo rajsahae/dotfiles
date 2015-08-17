@@ -3,6 +3,9 @@ color status green default
 set from      = rajsahae@gmail.com # from address
 set signature = ~/.mutt/sig-gmail # my signature file
 
+# Don't BCC myself on emails
+unmy_hdr Bcc:
+
 alternates raj.sahae@gmail.com # Alternate email addresses.
 
 # Default inbox.
