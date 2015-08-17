@@ -40,7 +40,7 @@ set sidebar_width     = 40
 set sidebar_format    = "%?F?%3!&   ? %-28B%* %?N?(%N)?"
 set sidebar_shortpath = yes
 
-color sidebar_new color221 color233
+color sidebar_new yellow default
 
 macro index \Cb '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager \Cb '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
@@ -180,8 +180,8 @@ source ~/.mutt/muttrc-gmail # Then load this to be the default
 source ~/.mutt/muttrc-tesla # Load this first to get the mailboxes
 
 # Custom colors based on message flags
-color index color9  black ~F # In my terminal, color9 is ANSI Bright Red
-color index black   green ~N
+color index color9  default ~F # In my terminal, color9 is ANSI Bright Red
+color index yellow   default ~N
 color index blue    white ~T
 color index black   red   ~D
 
