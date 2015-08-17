@@ -27,9 +27,11 @@ alias gbdrm='git branch -r --merged | grep -v -e "origin/HEAD" -e "origin/dev" -
 alias logs="cd $HOME/logs"
 alias swapclear='rm -f ~/.vimswaps/{,.}*'
 alias tailf='tail -f'
+alias theshireirb="irb -I $HOME/dev/tidal/lib -r tidal -I $HOME/dev/theshire/lib -r theshire -r pp"
+alias devsurf="RUBYLIB=$HOME/dev/theshire/lib:$HOME/dev/tidal/lib $HOME/dev/theshire/bin/surf"
 
 # Pull request aliases
-users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser @npenke @cvengadam @rviswanathan'
+users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser @npenke @rviswanathan'
 alias tidal_pr="stash pull-request dev $users"
 alias theshire_pr="stash pull-request master $users"
 alias jumpscripts_pr="stash pull-request master @ghuff @jehart @bchu @tzhang"
