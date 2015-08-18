@@ -163,6 +163,8 @@ set sendmail_wait = -1               # send mail in the background
 auto_view text/html                                  # view html automatically
 alternative_order text/plain text/enriched text/html # save html for last
 set reverse_alias = yes                              # Show alias names
+macro  index  \Cv  ": unset pipe_decode\n<pipe-message>~/.mutt/viewhtmlmail.rb\n: set pipe_decode\n" "View HTML in browser"
+macro  pager  \Cv  ": unset pipe_decode\n<pipe-message>~/.mutt/viewhtmlmail.rb\n: set pipe_decode\n" "View HTML in browser"
 
 
 # Hook for switching to folders each account ------------------------------
