@@ -40,34 +40,16 @@ task :install_dotfiles do
 
 end
 
+# Clean dotfiles from home folder
+task :clean_dotfiles do
+  FileUtils.rm_f @dotfiles.map{ |file| File.join(@home, ".#{file}") }
+end
+
 # link vim folder
 task :install_vim do
   FileUtils.mkdir_p @vim_dir
   FileUtils.mkdir_p @vimswaps_dir
   FileUtils.ln_s @local_vimdirs.map{ |dir| File.expand_path dir }, @vim_dir
-end
-
-# link mutt folder
-task :install_mutt do
-  FileUtils.mkdir_p @mutt_dir
-  FileUtils.ln_s @local_muttfiles.map{ |dir| File.expand_path dir }, @mutt_dir
-end
-
-# link bin folder
-task :install_bin do
-  FileUtils.mkdir_p @bin_dir
-  FileUtils.ln_s @local_binfiles.map{ |dir| File.expand_path dir }, @bin_dir
-end
-
-# link launchd scripts
-task :install_launchd do
-  FileUtils.ln_s @local_plist.map{ |file| File.expand_path file}, @launch_agent_dir
-  @local_plist.each { |file| system "launchctl load #{File.basename(file)}" }
-end
-
-# Clean dotfiles from home folder
-task :clean_dotfiles do
-  FileUtils.rm_f @dotfiles.map{ |file| File.join(@home, ".#{file}") }
 end
 
 # Clean vim folder links
@@ -76,10 +58,22 @@ task :clean_vim do
   FileUtils.rm_rf @vimswaps_dir
 end
 
+# link mutt folder
+task :install_mutt do
+  FileUtils.mkdir_p @mutt_dir
+  FileUtils.ln_s @local_muttfiles.map{ |dir| File.expand_path dir }, @mutt_dir
+end
+
 # Clean mutt folder links
 task :clean_mutt do
   files = @local_muttfiles.map{|f| File.join(@home, '.mutt', File.basename(f)) }
   FileUtils.rm_f files
+end
+
+# link bin folder
+task :install_bin do
+  FileUtils.mkdir_p @bin_dir
+  FileUtils.ln_s @local_binfiles.map{ |dir| File.expand_path dir }, @bin_dir
 end
 
 # Clean bin folder links
@@ -88,8 +82,21 @@ task :clean_bin do
   FileUtils.rm_f files
 end
 
+# link launchd scripts
+task :install_launchd do
+  FileUtils.ln_s @local_plist.map{ |file| File.expand_path file}, @launch_agent_dir
+  Dir.chdir(@launch_agent_dir) do
+    @local_plist.each { |file| system "launchctl load #{File.basename(file)}" }
+  end
+end
+
 # Clean LaunchAgent folder links
 task :clean_launchd do
-  @local_plist.each { |file| system "launchctl unload #{File.basename(file)}" }
-  FileUtils.rm_f @local_plist.map{ |file| File.expand_path file}
+  plist = @local_plist.map { |file| File.expand_path(File.join(@launch_agent_dir, File.basename(file))) }
+
+  Dir.chdir(@launch_agent_dir) do
+    plist.each { |file| system "launchctl unload #{File.basename(file)}" }
+  end
+
+  FileUtils.rm_f plist
 end
