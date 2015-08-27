@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ExitTimeOut</key>
+	<integer>30</integer>
+	<key>Label</key>
+	<string>com.rsahae.maildir-notifier</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/rsahae/bin/maildir-notifier</string>
+		<string>-d5</string>
+		<string>/Users/rsahae/.mail/rajsahae.gmail.com/INBOX</string>
+		<string>/Users/rsahae/.mail/rsahae.teslamotors.com/INBOX</string>
+		<string>/Users/rsahae/.mail/rsahae.teslamotors.com/Issues.Jira.Comments</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>ServiceDescription</key>
+	<string>Runs maildir-notifier on mail</string>
+	<key>StandardErrorPath</key>
+	<string>/var/log/rsahae/maildir-notifier.log</string>
+	<key>StandardOutPath</key>
+	<string>/var/log/rsahae/maildir-notifier.log</string>
+	<key>StartInterval</key>
+	<integer>120</integer>
+</dict>
+</plist>

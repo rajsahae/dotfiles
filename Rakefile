@@ -11,17 +11,19 @@ require 'fileutils'
 @home            = File.expand_path('~')
 @dotfiles        = (Dir['*'] - @repo_files).select{|f| File::file? f}
 
-@vim_dir         = File.expand_path("~/.vim")
-@vimswaps_dir    = File.expand_path("~/.vimswaps")
-@mutt_dir        = File.expand_path("~/.mutt")
-@bin_dir         = File.expand_path("~/bin")
+@vim_dir          = File.expand_path("~/.vim"                 )
+@vimswaps_dir     = File.expand_path("~/.vimswaps"            )
+@mutt_dir         = File.expand_path("~/.mutt"                )
+@bin_dir          = File.expand_path("~/bin"                  )
+@launch_agent_dir = File.expand_path("~/Library/LaunchAgents" )
 
-@local_vimdirs   = Dir["vim/*"].select{|dir| File.directory? dir }
-@local_muttfiles = Dir["mutt/*"].select{|file| File.file? file }
-@local_binfiles  = Dir["bin/*"].select{|file| File.file? file }
+@local_vimdirs   = Dir["vim/*"].     select {|dir | File.directory? dir }
+@local_muttfiles = Dir["mutt/*"].    select {|file| File.file? file     }
+@local_binfiles  = Dir["bin/*"].     select {|file| File.file? file     }
+@local_plist     = Dir["launchd/*"]. select {|file| File.file? file     }
 
-task :install => [:install_dotfiles, :install_vim, :install_mutt, :install_bin]
-task :clean => [:clean_dotfiles, :clean_vim, :clean_mutt, :clean_bin]
+task :install => [:install_dotfiles, :install_vim, :install_mutt, :install_bin, :install_launchd]
+task :clean => [:clean_dotfiles, :clean_vim, :clean_mutt, :clean_bin, :clean_launchd]
 
 # Install home folder dotfiles
 task :install_dotfiles do
@@ -57,6 +59,12 @@ task :install_bin do
   FileUtils.ln_s @local_binfiles.map{ |dir| File.expand_path dir }, @bin_dir
 end
 
+# link launchd scripts
+task :install_launchd do
+  FileUtils.ln_s @local_plist.map{ |file| File.expand_path file}, @launch_agent_dir
+  @local_plist.each { |file| system "launchctl load #{File.basename(file)}" }
+end
+
 # Clean dotfiles from home folder
 task :clean_dotfiles do
   FileUtils.rm_f @dotfiles.map{ |file| File.join(@home, ".#{file}") }
@@ -78,4 +86,10 @@ end
 task :clean_bin do
   files = @local_binfiles.map{|f| File.join(@home, 'bin', File.basename(f)) }
   FileUtils.rm_f files
+end
+
+# Clean LaunchAgent folder links
+task :clean_launchd do
+  @local_plist.each { |file| system "launchctl unload #{File.basename(file)}" }
+  FileUtils.rm_f @local_plist.map{ |file| File.expand_path file}
 end

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.rsahae.offlineimap-quick</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/offlineimap</string>
+      <string>-q</string>
+      <string>-c/Users/rsahae/.offlineimaprc</string>
+    </array>
+
+    <key>ServiceDescription</key>
+    <string>Runs offlineimap (quick) for email syncing</string>
+
+    <key>StartInterval</key>
+    <integer>120</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/rsahae/offlineimap.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/rsahae/offlineimap.log</string>
+
+    <key>ExitTimeOut</key>
+    <integer>10</integer>
+  </dict>
+</plist>
