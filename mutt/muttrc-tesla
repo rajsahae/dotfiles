@@ -29,6 +29,7 @@ mailboxes '+rsahae.teslamotors.com/INBOX'                      \
           '+rsahae.teslamotors.com/Issues.Jira'                \
           '+rsahae.teslamotors.com/Issues.Jira.Comments'       \
           '+rsahae.teslamotors.com/Issues.Jira.Created'        \
+          '+rsahae.teslamotors.com/Jenkins'                    \
           '+rsahae.teslamotors.com/Misc.Eat Club'              \
           '+rsahae.teslamotors.com/Misc.Groceries'             \
           '+rsahae.teslamotors.com/Misc.PTO'                   \
@@ -54,6 +55,7 @@ macro index,pager gct   "<change-folder>=rsahae.teslamotors.com/Code Review.Tida
 macro index,pager gij   "<change-folder>=rsahae.teslamotors.com/Issues.Jira<enter>"                 "Go to Issues.Jira"
 macro index,pager gjc   "<change-folder>=rsahae.teslamotors.com/Issues.Jira.Comments<enter>"        "Go to Issues.Jira.Comments"
 macro index,pager gjn   "<change-folder>=rsahae.teslamotors.com/Issues.Jira.Created<enter>"         "Go to Issues.Jira.Created"
+macro index,pager gjs   "<change-folder>=rsahae.teslamotors.com/Jenkins<enter>"                     "Go to Jenkins"
 macro index,pager gme   "<change-folder>=rsahae.teslamotors.com/Misc.Eat Club<enter>"               "Go to Misc.Eat Club"
 macro index,pager gmg   "<change-folder>=rsahae.teslamotors.com/Misc.Groceries<enter>"              "Go to Misc.Groceries"
 macro index,pager gmp   "<change-folder>=rsahae.teslamotors.com/Misc.PTO<enter>"                    "Go to Misc.PTO"
