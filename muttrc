@@ -158,6 +158,8 @@ unset mime_forward                   # forward attachments as part of body
 # SMTP Settings
 set sendmail_wait = -1               # send mail in the background
 
+# Display filter script used to automatically add aliases
+set display_filter = ~/.mutt/extract_aliases.sh
 
 # Viewing HTML Email --------------------------------------
 auto_view text/html                                  # view html automatically
