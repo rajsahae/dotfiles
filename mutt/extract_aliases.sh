@@ -1,7 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 ALIASES=$HOME/.mutt/aliases
 MESSAGE=$(cat)
+
+function finish() {
+  echo "${MESSAGE}"
+  exit 0
+}
 
 NEWALIAS=$( \
   echo "${MESSAGE}" | \
@@ -18,8 +23,27 @@ NEWALIAS=$( \
   }'
 )
 
+# Skip any new alias that doesn't contain the @ symbol
+if [[ ! "$NEWALIAS" =~ "@" ]]; then
+  finish
+fi
+
+# Skip any address that matches a blacklist item
+read -r -d '' BLACKLIST <<-'EOL'
+(JIRA) administrator gauss.teslamotors.com frontapp.com stashprd eat24 cnn-news
+gameknot AmericanExpress noreply Taj rollup unroll.me brandyourself Newsletter
+splunk HipChat NoReply Scheduler
+EOL
+
+for match in $BLACKLIST; do
+  if [[ "$NEWALIAS" =~ "$match" ]]; then
+    finish
+  fi
+done
+
+# Add it if it's not already in the aliases file
 if ! grep -Fxq "$NEWALIAS" $ALIASES; then
   echo "$NEWALIAS" >> $ALIASES
 fi
 
-echo "${MESSAGE}"
+finish

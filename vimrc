@@ -111,6 +111,7 @@ if has("autocmd")
     " }}}
 
     autocmd FileType mail setlocal fo+=aw
+    autocmd FileType mail setlocal spell spelllang=en_us
 
   augroup END
 
