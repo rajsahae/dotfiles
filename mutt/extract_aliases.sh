@@ -30,9 +30,9 @@ fi
 
 # Skip any address that matches a blacklist item
 read -r -d '' BLACKLIST <<-'EOL'
-(JIRA) administrator gauss.teslamotors.com frontapp.com stashprd eat24 cnn-news
+(JIRA) administrator frontapp.com stashprd eat24 cnn-news
 gameknot AmericanExpress noreply Taj rollup unroll.me brandyourself Newsletter
-splunk HipChat NoReply Scheduler
+splunk HipChat NoReply Scheduler no-reply
 EOL
 
 for match in $BLACKLIST; do
