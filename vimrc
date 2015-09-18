@@ -195,6 +195,14 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader><leader>w :w<CR>
+nnoremap <leader><leader>wa :wa<CR>
+nnoremap <leader><leader>ex :Ex<CR>
+nnoremap <leader><leader>vx :Vex<CR>
+nnoremap <leader><leader>sx :Sex<CR>
+nnoremap :wa<CR> <nop>
+nnoremap :Ex<CR> <nop>
+nnoremap :Vex<CR> <nop>
+nnoremap :Sex<CR> <nop>
 "inoremap <leader><leader>c <ESC>
 " expand current buffer to whole screen
 nnoremap <leader>o <c-w><c-_><c-w><bar>
