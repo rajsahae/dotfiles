@@ -26,8 +26,8 @@ bind right:${hyper}   push right bar-resize:screenSizeX/2
 bind left:${hyper}    push left  bar-resize:screenSizeX/2
 
 # Hyper max/min bindings
-bind up:${hyper}      move screenOriginX;screenOriginY screenSizeX;screenSizeY 0
-bind down:${hyper}    move screenOriginX;screenOriginY screenSizeX;screenSizeY 1
+bind down:${hyper}      move screenOriginX;screenOriginY screenSizeX;screenSizeY 0
+bind up:${hyper}    move screenOriginX;screenOriginY screenSizeX;screenSizeY 1
 
 # Nudge Bindings
 bind right:shift;alt nudge +10% +0

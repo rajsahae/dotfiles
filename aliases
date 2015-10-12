@@ -33,7 +33,7 @@ alias be='bundle exec'
 
 # Pull request aliases
 users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser @npenke @rviswanathan'
-alias tidal_pr="stash pull-request dev $users"
+alias tidal_pr="stash pull-request master $users"
 alias theshire_pr="stash pull-request master $users"
 alias jumpscripts_pr="stash pull-request master @ghuff @jehart @bchu @tzhang"
 

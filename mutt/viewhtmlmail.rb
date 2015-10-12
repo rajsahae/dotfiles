@@ -31,9 +31,11 @@ Dir.mktmpdir do |dir|
     File.open('mail', 'w') { |file| file.puts str }
     mail = Mail.read('mail')
 
+    # puts mail.attachments.map(&:inspect)
+
     # Shamelessly stolen right out of the mail gem README
     mail.attachments.each do |attachment|
-      if attachment.content_type.start_with?('image/')
+      if attachment.content_type =~ /image\//
         filename = attachment.filename
         begin
           File.open(filename, "w+b", 0644) { |f| f.write attachment.body.decoded }
@@ -43,25 +45,37 @@ Dir.mktmpdir do |dir|
       end
     end
 
+    # puts mail.parts.map(&:content_type).join("\n")
+
     if mail.parts.empty?
+      puts 'mail parts empty'
       File.open("mail.html", 'w') do |file|
         file.puts mail.body.to_s
       end
     else
 
       mail.parts.each_with_index do |part, index|
-        next unless part.content_type.start_with? 'text/html'
+        next unless part.content_type =~ /text\/html/
+
+        # puts mail.attachments.size
 
         # We need to replace the image src links with the local filename
         # src="cid:image003.jpg@01D0D911.F135CA10" => image003.jpg
         html = mail.attachments.inject(part.body.to_s) do |memo, attachment|
+          # p memo
+
           filename = attachment.filename
           content_id = attachment.content_id[1...-1]
+
+          # p filename
+          # p content_id
 
           if memo.include? attachment.filename
             memo.gsub(/src="cid:#{filename}@[^"]*"/, "src=\"#{filename}\"")
           elsif memo.include? attachment.content_id[1...-1]
             memo.gsub(/src=.*#{content_id}"/, "src=\"#{filename}\"")
+          else
+            memo
           end
 
         end
@@ -77,7 +91,7 @@ Dir.mktmpdir do |dir|
     Dir['*html'].each { |page| system("open #{page}") }
 
     # We need to wait a bit so the files are there when we try to open
-    sleep 1
+    sleep 3
 
   end
 end

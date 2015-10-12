@@ -34,7 +34,7 @@ bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim     = '│'
+set sidebar_delim     = ' | '
 set sidebar_visible   = yes
 set sidebar_width     = 40
 set sidebar_format    = "%?F?%3!&   ? %-28B%* %?N?(%N)?"
@@ -152,7 +152,7 @@ set reverse_name                     # reply as whomever it was to
 set edit_headers                     # show headers when composing
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
-unset mime_forward                   # forward attachments as part of body
+set mime_forward                     # forward attachments as part of body
 
 
 # SMTP Settings
@@ -165,8 +165,7 @@ set display_filter = ~/.mutt/extract_aliases.sh
 auto_view text/html                                  # view html automatically
 alternative_order text/plain text/enriched text/html # save html for last
 set reverse_alias = yes                              # Show alias names
-macro  index  \Cv  ": unset pipe_decode\n<pipe-message>~/.mutt/viewhtmlmail.rb\n: set pipe_decode\n" "View HTML in browser"
-macro  pager  \Cv  ": unset pipe_decode\n<pipe-message>~/.mutt/viewhtmlmail.rb\n: set pipe_decode\n" "View HTML in browser"
+macro  index,pager,attach  \Cv  ": unset pipe_decode\n<pipe-message>~/.mutt/viewhtmlmail.rb\n: set pipe_decode\n" "View HTML in browser"
 
 
 # Hook for switching to folders each account ------------------------------
