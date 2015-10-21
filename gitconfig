@@ -30,6 +30,8 @@
   lo = log --oneline
   where = tag -l '*release*' --contains
   create-pull-request = !sh -c 'stash pull-request $0'
+  diff-master = !git diff $(git merge-base HEAD origin/master)
+  diff-stat-master = !git diff --stat $(git merge-base HEAD origin/master)
 
 [push]
   default = current

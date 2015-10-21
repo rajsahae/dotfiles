@@ -32,7 +32,7 @@ alias devsurf="RUBYLIB=$HOME/dev/theshire/lib:$HOME/dev/tidal/lib $HOME/dev/thes
 alias be='bundle exec'
 
 # Pull request aliases
-users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser @npenke @rviswanathan'
+users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser @npenke @rviswanathan @angarg'
 alias tidal_pr="stash pull-request master $users"
 alias theshire_pr="stash pull-request master $users"
 alias jumpscripts_pr="stash pull-request master @ghuff @jehart @bchu @tzhang"
