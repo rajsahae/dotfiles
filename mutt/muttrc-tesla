@@ -38,7 +38,7 @@ mailboxes '+rsahae.teslamotors.com/INBOX'                      \
           '+rsahae.teslamotors.com/Platform Firmware Releases' \
 
 # SMTP Settings
-set sendmail      = "/usr/local/bin/msmtp -a tesla"
+set sendmail      = "/usr/local/bin/msmtp -a tesla --logfile /var/log/rsahae/msmtp.log"
 
 # Gmail-style keyboard shortcuts
 bind editor <space> noop

@@ -80,7 +80,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases" # Load custom aliases
+[[ -s "$HOME/.aliases"  ]] && source "$HOME/.aliases"  # Load custom aliases
+[[ -s "$HOME/.homebrew" ]] && source "$HOME/.homebrew" # Load homebrew related env
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -93,9 +94,6 @@ export SCROLLVIEW_PATH=$HOME/dev/tesseract-ocr/java
 
 # Export mysteryinc env variable for tidal
 export MYSTERYINC_ROOT=$HOME/dev/mysteryinc
-
-# Github API Tokens
-export HOMEBREW_GITHUB_API_TOKEN=6c4cf20baf2afd6ddd4d6849aa15130655aafca8
 
 # Tidal DBC file locations
 export TIDAL_DBC_PATH=~/dev/firmware/platforms/ModelS/DBC

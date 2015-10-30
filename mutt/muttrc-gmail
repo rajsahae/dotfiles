@@ -24,7 +24,7 @@ mailboxes +rajsahae.gmail.com/INBOX   \
           +rajsahae.gmail.com/Drafts  \
 
 # SMTP Settings
-set sendmail      = "/usr/local/bin/msmtp -a gmail"
+set sendmail      = "/usr/local/bin/msmtp -a gmail --logfile /var/log/rsahae/msmtp.log"
 
 # Gmail-style keyboard shortcuts
 macro index,pager gig "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
