@@ -5,8 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="random"
-ZSH_THEME="avit"
+ZSH_THEME="Soliah"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -97,3 +96,7 @@ export MYSTERYINC_ROOT=$HOME/dev/mysteryinc
 
 # Tidal DBC file locations
 export TIDAL_DBC_PATH=~/dev/firmware/platforms/ModelS/DBC
+
+export RACK_ENV=production
+export EDITOR=vim
+
