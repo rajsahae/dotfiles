@@ -31,6 +31,7 @@ alias theshireirb="irb -I $HOME/dev/tidal/lib -r tidal -I $HOME/dev/theshire/lib
 alias devsurf="RUBYLIB=$HOME/dev/theshire/lib:$HOME/dev/tidal/lib $HOME/dev/theshire/bin/surf"
 alias surf="RUBYLIB=$HOME/dev/theshire/lib $HOME/dev/theshire/bin/surf"
 alias be='bundle exec'
+alias dlimap='/usr/local/bin/offlineimap -q -c ~/.offlineimaprc'
 
 # Pull request aliases
 users='@mortiz @jdusaint @pkalra @cmiguelgorry @clansford @achiang @pglaser @npenke @rviswanathan @angarg'
