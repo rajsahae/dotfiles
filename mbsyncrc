@@ -1,0 +1,41 @@
+# Global configuration section
+#   Values here are used as defaults for any following Channel section that
+#   doesn't specify them.
+Expunge None
+Create Both
+
+MaildirStore gmail-local
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/INBOX
+
+MaildirStore teslamotors-local
+Path ~/.mail/teslamotors/
+Inbox ~/.mail/teslamotors/INBOX
+
+IMAPStore gmail-remote
+Host imap.gmail.com
+User rajsahae@gmail.com
+PassCmd "gpg --no-tty --quiet --decrypt ~/.msmtp-gmail.gpg"
+SSLType IMAPS
+CertificateFile /etc/openssl/cert.pem
+AuthMechs LOGIN
+
+IMAPStore teslamotors-remote
+Host xmail.teslamotors.com
+User rsahae
+PassCmd "gpg --no-tty --quiet --decrypt ~/.msmtp-tesla.gpg"
+SSLType IMAPS
+CertificateFile /etc/openssl/cert.pem
+AuthMechs LOGIN
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns *
+SyncState *
+
+Channel teslamotors
+Master :teslamotors-remote:
+Slave :teslamotors-local:
+Patterns *
+SyncState *
