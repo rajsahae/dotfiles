@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.rsahae.mbsync-quick</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>-c</string>
+      <string>echo " --- " `date` " --- "; /usr/local/bin/mbsync --verbose gmail:INBOX teslamotors:INBOX</string>
+    </array>
+
+    <key>ServiceDescription</key>
+    <string>Runs mbsync (quick) for email syncing</string>
+
+    <key>StartInterval</key>
+    <integer>90</integer>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/rsahae/mbsync.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/rsahae/mbsync.log</string>
+
+    <key>ExitTimeOut</key>
+    <integer>10</integer>
+  </dict>
+</plist>

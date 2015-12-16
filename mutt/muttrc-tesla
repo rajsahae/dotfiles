@@ -15,27 +15,27 @@ set record    = "+rsahae.teslamotors.com/Sent Items"
 my_hdr Bcc: rsahae@teslamotors.com
 
 # Mailboxes to show in the sidebar.
-mailboxes '+rsahae.teslamotors.com/INBOX'                      \
-          '+rsahae.teslamotors.com/Sent Items'                 \
-          '+rsahae.teslamotors.com/Archive'                    \
-          '+rsahae.teslamotors.com/Drafts'                     \
-          '+rsahae.teslamotors.com/Drive Notes'                \
-          '+rsahae.teslamotors.com/For Later'                  \
-          '+rsahae.teslamotors.com/Code Review.Firmware'       \
-          '+rsahae.teslamotors.com/Code Review.Jump Scripts'   \
-          '+rsahae.teslamotors.com/Code Review.TheShire'       \
-          '+rsahae.teslamotors.com/Code Review.Tidal'          \
-          '+rsahae.teslamotors.com/FW Releases Info'           \
-          '+rsahae.teslamotors.com/Issues.Jira'                \
-          '+rsahae.teslamotors.com/Issues.Jira.Comments'       \
-          '+rsahae.teslamotors.com/Issues.Jira.Created'        \
-          '+rsahae.teslamotors.com/Jenkins'                    \
-          '+rsahae.teslamotors.com/Misc.Eat Club'              \
-          '+rsahae.teslamotors.com/Misc.Groceries'             \
-          '+rsahae.teslamotors.com/Misc.PTO'                   \
-          '+rsahae.teslamotors.com/Misc.Smoke It'              \
-          '+rsahae.teslamotors.com/Misc.WAH'                   \
-          '+rsahae.teslamotors.com/Platform Firmware Releases' \
+mailboxes '+rsahae.teslamotors.com/INBOX' \
+          '+rsahae.teslamotors.com/Sent Items' \
+          '+rsahae.teslamotors.com/Archive' \
+          '+rsahae.teslamotors.com/Code Review/.Firmware' \
+          '+rsahae.teslamotors.com/Code Review/.Jump Scripts' \
+          '+rsahae.teslamotors.com/Code Review/.TheShire' \
+          '+rsahae.teslamotors.com/Code Review/.Tidal' \
+          '+rsahae.teslamotors.com/Drafts' \
+          '+rsahae.teslamotors.com/Drive Notes' \
+          '+rsahae.teslamotors.com/For Later' \
+          '+rsahae.teslamotors.com/FW Releases Info' \
+          '+rsahae.teslamotors.com/Issues/.Jira' \
+          '+rsahae.teslamotors.com/Issues/.Jira/.Comments' \
+          '+rsahae.teslamotors.com/Issues/.Jira/.Created' \
+          '+rsahae.teslamotors.com/Jenkins' \
+          '+rsahae.teslamotors.com/Misc/.Garage Migrations' \
+          '+rsahae.teslamotors.com/Misc/.Groceries' \
+          '+rsahae.teslamotors.com/Misc/.PTO' \
+          '+rsahae.teslamotors.com/Misc/.Smoke It' \
+          '+rsahae.teslamotors.com/Misc/.WAH' \
+          '+rsahae.teslamotors.com/Platform Firmware Releases'
 
 # SMTP Settings
 set sendmail      = "/usr/local/bin/msmtp -a tesla --logfile /var/log/rsahae/msmtp.log"
@@ -48,19 +48,19 @@ macro index,pager gat   "<change-folder>=rsahae.teslamotors.com/Archive<enter>" 
 macro index,pager gdt   "<change-folder>=rsahae.teslamotors.com/Drafts<enter>"                      "Go to drafts"
 macro index,pager gdn   "<change-folder>=rsahae.teslamotors.com/Drive Notes<enter>"                 "Go to DriveNotes"
 macro index,pager gfl   "<change-folder>=rsahae.teslamotors.com/For Later<enter>"                   "Go to For Later"
-macro index,pager gcf   "<change-folder>=rsahae.teslamotors.com/Code Review.Firmware<enter>"        "Go to Code Review.Firmware"
-macro index,pager gcj   "<change-folder>=rsahae.teslamotors.com/Code Review.Jump Scripts<enter>"    "Go to Code Review.Jump Scripts"
-macro index,pager gcs   "<change-folder>=rsahae.teslamotors.com/Code Review.TheShire<enter>"        "Go to Code Review.TheShire"
-macro index,pager gct   "<change-folder>=rsahae.teslamotors.com/Code Review.Tidal<enter>"           "Go to Code Review.Tidal"
-macro index,pager gij   "<change-folder>=rsahae.teslamotors.com/Issues.Jira<enter>"                 "Go to Issues.Jira"
-macro index,pager gjc   "<change-folder>=rsahae.teslamotors.com/Issues.Jira.Comments<enter>"        "Go to Issues.Jira.Comments"
-macro index,pager gjn   "<change-folder>=rsahae.teslamotors.com/Issues.Jira.Created<enter>"         "Go to Issues.Jira.Created"
+macro index,pager gcf   "<change-folder>=rsahae.teslamotors.com/Code Review/.Firmware<enter>"        "Go to Code Review.Firmware"
+macro index,pager gcj   "<change-folder>=rsahae.teslamotors.com/Code Review/.Jump Scripts<enter>"    "Go to Code Review.Jump Scripts"
+macro index,pager gcs   "<change-folder>=rsahae.teslamotors.com/Code Review/.TheShire<enter>"        "Go to Code Review.TheShire"
+macro index,pager gct   "<change-folder>=rsahae.teslamotors.com/Code Review/.Tidal<enter>"           "Go to Code Review.Tidal"
+macro index,pager gij   "<change-folder>=rsahae.teslamotors.com/Issues/.Jira<enter>"                 "Go to Issues.Jira"
+macro index,pager gjc   "<change-folder>=rsahae.teslamotors.com/Issues/.Jira/.Comments<enter>"        "Go to Issues.Jira.Comments"
+macro index,pager gjn   "<change-folder>=rsahae.teslamotors.com/Issues/.Jira/.Created<enter>"         "Go to Issues.Jira.Created"
 macro index,pager gjs   "<change-folder>=rsahae.teslamotors.com/Jenkins<enter>"                     "Go to Jenkins"
-macro index,pager gme   "<change-folder>=rsahae.teslamotors.com/Misc.Eat Club<enter>"               "Go to Misc.Eat Club"
-macro index,pager gmg   "<change-folder>=rsahae.teslamotors.com/Misc.Groceries<enter>"              "Go to Misc.Groceries"
-macro index,pager gmp   "<change-folder>=rsahae.teslamotors.com/Misc.PTO<enter>"                    "Go to Misc.PTO"
-macro index,pager gms   "<change-folder>=rsahae.teslamotors.com/Misc.Smoke It<enter>"               "Go to Misc.Smoke It"
-macro index,pager gmw   "<change-folder>=rsahae.teslamotors.com/Misc.WAH<enter>"                    "Go to Misc.WAH"
+macro index,pager gme   "<change-folder>=rsahae.teslamotors.com/Misc/.Eat Club<enter>"               "Go to Misc.Eat Club"
+macro index,pager gmg   "<change-folder>=rsahae.teslamotors.com/Misc/.Groceries<enter>"              "Go to Misc.Groceries"
+macro index,pager gmp   "<change-folder>=rsahae.teslamotors.com/Misc/.PTO<enter>"                    "Go to Misc.PTO"
+macro index,pager gms   "<change-folder>=rsahae.teslamotors.com/Misc/.Smoke It<enter>"               "Go to Misc.Smoke It"
+macro index,pager gmw   "<change-folder>=rsahae.teslamotors.com/Misc/.WAH<enter>"                    "Go to Misc.WAH"
 macro index,pager gpf   "<change-folder>=rsahae.teslamotors.com/Platform Firmware Releases<enter>"  "Go to Platform Firmware Releases"
 macro index,pager gfr   "<change-folder>=rsahae.teslamotors.com/FW Releases Info<enter>"            "Go to FW Releases Info"
 

@@ -12,26 +12,26 @@ alternates raj.sahae@gmail.com # Alternate email addresses.
 set spoolfile = "+rajsahae.gmail.com/INBOX"
 
 # Other special folders.
-set mbox      = "+rajsahae.gmail.com/Archive"
-set postponed = "+rajsahae.gmail.com/Drafts"
+set mbox      = "+rajsahae.gmail.com/[Gmail]/.All Mail"
+set postponed = "+rajsahae.gmail.com/[Gmail]/.Drafts"
 unset record # Gmail handles this
 
 # Mailboxes to show in the sidebar.
-mailboxes +rajsahae.gmail.com/INBOX   \
-          +rajsahae.gmail.com/Sent    \
-          +rajsahae.gmail.com/Archive \
-          +rajsahae.gmail.com/Flagged \
-          +rajsahae.gmail.com/Drafts  \
+mailboxes +rajsahae.gmail.com/INBOX                \
+          +rajsahae.gmail.com/"[Gmail]/.Sent Mail" \
+          +rajsahae.gmail.com/"[Gmail]/.All Mail"  \
+          +rajsahae.gmail.com/"[Gmail]/.Starred"   \
+          +rajsahae.gmail.com/"[Gmail]/.Drafts"    \
 
 # SMTP Settings
 set sendmail      = "/usr/local/bin/msmtp -a gmail --logfile /var/log/rsahae/msmtp.log"
 
 # Gmail-style keyboard shortcuts
 macro index,pager gig "<change-folder>=rajsahae.gmail.com/INBOX<enter>" "Go to inbox"
-macro index,pager gsg "<change-folder>=rajsahae.gmail.com/Sent<enter>" "Go to sent mail"
-macro index,pager gag "<change-folder>=rajsahae.gmail.com/Archive<enter>" "Go to all mail"
-macro index,pager gfg "<change-folder>=rajsahae.gmail.com/Flagged<enter>" "Go to starred messages"
-macro index,pager gdg "<change-folder>=rajsahae.gmail.com/Drafts<enter>" "Go to drafts"
+macro index,pager gsg "<change-folder>=rajsahae.gmail.com/[Gmail]/.Sent Mail<enter>" "Go to sent mail"
+macro index,pager gag "<change-folder>=rajsahae.gmail.com/[Gmail]/.All Mail<enter>" "Go to all mail"
+macro index,pager gfg "<change-folder>=rajsahae.gmail.com/[Gmail]/.Starred<enter>" "Go to starred messages"
+macro index,pager gdg "<change-folder>=rajsahae.gmail.com/[Gmail]/.Drafts<enter>" "Go to drafts"
 
 # Set Delete to it's normal functionality
 bind index,pager d delete-message

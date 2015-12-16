@@ -5,17 +5,17 @@ Expunge None
 Create Both
 
 MaildirStore gmail-local
-Path ~/.mail/gmail/
-Inbox ~/.mail/gmail/INBOX
+Path ~/.mail/rajsahae.gmail.com/
+Inbox ~/.mail/rajsahae.gmail.com/INBOX
 
 MaildirStore teslamotors-local
-Path ~/.mail/teslamotors/
-Inbox ~/.mail/teslamotors/INBOX
+Path ~/.mail/rsahae.teslamotors.com/
+Inbox ~/.mail/rsahae.teslamotors.com/INBOX
 
 IMAPStore gmail-remote
 Host imap.gmail.com
 User rajsahae@gmail.com
-PassCmd "gpg --no-tty --quiet --decrypt ~/.msmtp-gmail.gpg"
+PassCmd "/usr/local/bin/gpg --no-tty --quiet --decrypt ~/.msmtp-gmail.gpg"
 SSLType IMAPS
 CertificateFile /etc/openssl/cert.pem
 AuthMechs LOGIN
@@ -23,7 +23,7 @@ AuthMechs LOGIN
 IMAPStore teslamotors-remote
 Host xmail.teslamotors.com
 User rsahae
-PassCmd "gpg --no-tty --quiet --decrypt ~/.msmtp-tesla.gpg"
+PassCmd "/usr/local/bin/gpg --no-tty --quiet --decrypt ~/.msmtp-tesla.gpg"
 SSLType IMAPS
 CertificateFile /etc/openssl/cert.pem
 AuthMechs LOGIN
@@ -31,11 +31,15 @@ AuthMechs LOGIN
 Channel gmail
 Master :gmail-remote:
 Slave :gmail-local:
-Patterns *
+Patterns INBOX "[Gmail]/Drafts" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Sent Mail"
 SyncState *
 
 Channel teslamotors
 Master :teslamotors-remote:
 Slave :teslamotors-local:
-Patterns *
+Patterns * !"Calendar" !"Code Review" !"Contacts" !"Deleted Items" !"Issues" !"Journal"
+Patterns !"Junk E-Mail" !"RSS Feeds" !"Misc" !"Notes" !"Outbox" !"Sync Issues" !"Misc/Eat Club"
+Patterns !"Sync Issues/Conflicts" !"Sync Issues/Local Failures" !"Conversation History"
+Patterns !"Sync Issues/Server Failures" !"Suggested Contacts" !"Tasks" !"Issues/Odometer Testing"
+
 SyncState *
