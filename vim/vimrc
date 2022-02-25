@@ -100,7 +100,7 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	 	\ | wincmd p | diffthis
 
 " Added by Raj Sahae 2011.09.19
@@ -184,3 +184,7 @@ inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")
 inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 inoremap <expr> %>  strpart(getline('.'), col('.')-1, 2) == "%>" ? "\<Right><Right>" : "%>"
 inoremap def<Space> def<CR>end<Esc><Up>A<Space>
+
+" key mappings for vimrc
+nnoremap <leader>ev <C-w>s:edit! ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
