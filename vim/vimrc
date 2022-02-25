@@ -72,8 +72,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'valloric/youcompleteme'
+Plugin 'vim-airline/vim-airline'
+
 
 call vundle#end()
 
@@ -188,3 +195,14 @@ inoremap def<Space> def<CR>end<Esc><Up>A<Space>
 " key mappings for vimrc
 nnoremap <leader>ev <C-w>s:edit! ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_checkers = ['gcc']
