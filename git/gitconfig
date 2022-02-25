@@ -27,3 +27,5 @@
 
 [push]
 	default = tracking
+[core]
+	editor = vim
