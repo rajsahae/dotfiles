@@ -23,6 +23,7 @@
   di = diff
   dc = diff --cached
   lo = log --oneline
+  p = push
   where = tag -l '*release*' --contains
 
 [push]
