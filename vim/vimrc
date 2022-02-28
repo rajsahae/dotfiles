@@ -208,4 +208,13 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_checkers = ['gcc']
 
 " Terminal emulator keys
-tnoremap <leader>tn <C-w>N
+" tnoremap <leader>tn <C-w>N
+tnoremap <leader>tn <C-\><C-n>
+
+" Navigation mappings
+nmap <F5> :NERDTreeToggle<CR>
+nmap <F6> :NERDTreeFind<CR>
+nmap <F8> :TagbarToggle<CR>
+
+" dot tagfile
+set tags+=./.tags,.tags

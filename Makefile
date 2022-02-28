@@ -1,10 +1,14 @@
+INSTALL_DIRS = $(sort $(dir $(wildcard */)))
+
 .PHONY: install
 install:
-	$(MAKE) -C git install
-	$(MAKE) -C vim install
+	for dir in $(INSTALL_DIRS) ; do \
+		$(MAKE) -C $$dir install ; \
+	done
 
 
 .PHONY: clean
 clean:
-	$(MAKE) -C git clean
-	$(MAKE) -C vim clean
+	for dir in $(INSTALL_DIRS) ; do \
+		$(MAKE) -C $$dir clean ; \
+	done

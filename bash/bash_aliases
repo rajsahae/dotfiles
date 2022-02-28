@@ -1,0 +1,82 @@
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -lF'
+alias la='ls -AlF'
+alias l='ls -CF'
+alias lt='ls -ltrAFh'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Rust aliases
+alias cr='cargo run'
+alias cb='cargo build'
+alias ct='cargo test'
+alias ccl='cargo clean'
+
+# shortcut open command
+alias open=xdg-open
+
+# mount network drive
+alias mount-network-data='sudo -E bash -c "umount -f /mnt/antec-data ; sshfs raj@ghq:/media/external /mnt/antec-data -o allow_other"'
+
+# sync music from external drive to phone
+alias sync-music='rsync -av --progress --size-only /mnt/antec-data/music/curated/ /run/user/1000/gsconnect/by-name/Galaxy\ S9+/610E-1EBD/Music/'
+
+generate-music-folders () {
+  ls -1d /mnt/antec-data/music/curated/* > ~/music-folders-to-sync.txt
+}
+
+sync-music-by-folder () {
+  local rsync_opts="-av --progress --size-only"
+  local source_dir="/mnt/antec-data/music/curated"
+  local target_dir='/run/user/1000/gsconnect/by-name/Galaxy S9+/610E-1EBD/Music'
+
+  if ! ls "$source_dir" &> /dev/null ; then
+    echo "Source not available"
+    return 0
+  fi
+
+  if ! ls "$target_dir" &> /dev/null ; then
+    echo "Target not available"
+    return 0
+  fi
+
+  while read src ; do
+    local bname=$(basename "$src")
+    local dest="$target_dir/$bname"
+    echo "$src => $dest"
+    rsync $rsync_opts "$src" "$target_dir/"
+    local exit_code="$?"
+    echo "Exit code: $exit_code"
+    if [[ "$exit_code" -gt "0" ]] ; then
+      echo "Aborting sync"
+      return "$exit_code"
+    fi
+    echo '========='
+  done < ~/music-folders-to-sync.txt
+}
+
+## ROS
+
+ROS_DOMAIN_ID=13
+function rinit () {
+    export ROS_DOMAIN_ID=13
+    source $HOME/ros2_galactic/ros2-linux/setup.bash &>/dev/null
+}
+alias r='ros2'
+
+# Use nvim instead of vim
+alias vim=nvim
