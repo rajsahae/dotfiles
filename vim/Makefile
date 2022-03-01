@@ -11,6 +11,10 @@ install:
 	ln -svf $(LOCAL_VIMDIR) $(TGT_VIMDIR)
 	ln -svf $(LOCAL_VIMRC) $(TGT_VIMRC)
 	mkdir -p $(TGT_VIMSWAPS)
+	sudo apt install build-essential cmake vim-nox python3-dev mono-complete golang nodejs default-jdk npm
+	git submodule update --init --recursive
+	cd $(LOCAL_VIMDIR)/bundle/youcompleteme && python3 install.py --all
+	vim +PluginInstall +qall
 
 .PHONY: clean
 clean:
