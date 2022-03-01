@@ -78,7 +78,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'valloric/youcompleteme'
+"Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline'
 
 
