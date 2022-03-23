@@ -45,6 +45,7 @@ esac
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
+# shellcheck disable=SC2154
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
@@ -80,6 +81,7 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
+# shellcheck disable=SC1091,SC1090
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -87,6 +89,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+# shellcheck disable=SC1091
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -100,12 +103,52 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
+# set PATH so it includes user's private local bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/opt/gradle/gradle-7.4/bin:$HOME/.cargo/bin:$PATH"
 
 # Initialize ros2, from bash aliases
 rinit
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+
+if type pyenv &>/dev/null ; then
+    # ugh, really pyenv?
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    PATH="$(pyenv root)/shims:$PATH"
+    export PATH
+
+    alias python="\$(pyenv which python)"
+    alias pip="\$(pyenv which pip)"
+fi
+
+# qoowa bin
+export PATH="$PATH:$HOME/src/qoowa/bin"
+
+# qoowa autocompletion
+if [[ -r "$HOME/src/qoowa/bin/qoowa-robot-completion" ]] ; then
+    # shellcheck disable=SC1090
+    source "$HOME/src/qoowa/bin/qoowa-robot-completion"
+fi
+
+SRC_DIR="$HOME/src"
+PYTHONPATH="$SRC_DIR/qoowa/src/python_modules:$SRC_DIR/qoowa/src/protobuf/src/python"
+export PYTHONPATH
+
+# Use docker buildkit by default
+export DOCKER_BUILDKIT=1
+
+export NVM_DIR="$HOME/.nvm"
+# shellcheck disable=SC1090
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# shellcheck disable=SC1090
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# GO path
+export PATH="$PATH:/usr/local/go/bin"
+. "$HOME/.cargo/env"

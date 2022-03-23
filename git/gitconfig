@@ -24,9 +24,10 @@
   dc = diff --cached
   lo = log --oneline
   p = push
+  pl = pull
   where = tag -l '*release*' --contains
 
 [push]
-	default = tracking
+	default = current
 [core]
 	editor = vim

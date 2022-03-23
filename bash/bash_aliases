@@ -1,6 +1,10 @@
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    if test -r ~/.dircolors ; then
+        eval "$(dircolors -b ~/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -25,6 +29,7 @@ alias cr='cargo run'
 alias cb='cargo build'
 alias ct='cargo test'
 alias ccl='cargo clean'
+alias cch='cargo check'
 
 # shortcut open command
 alias open=xdg-open
@@ -54,10 +59,13 @@ sync-music-by-folder () {
     return 0
   fi
 
-  while read src ; do
-    local bname=$(basename "$src")
-    local dest="$target_dir/$bname"
+  while read -r src ; do
+    local bname
+    bname=$(basename "$src")
+    local dest
+    dest="$target_dir/$bname"
     echo "$src => $dest"
+    # shellcheck disable=SC2086
     rsync $rsync_opts "$src" "$target_dir/"
     local exit_code="$?"
     echo "Exit code: $exit_code"
@@ -69,14 +77,36 @@ sync-music-by-folder () {
   done < ~/music-folders-to-sync.txt
 }
 
+## Source bash files
+alias sbc="source \$HOME/.bashrc"
+alias sba="source \$HOME/.bash_aliases"
+
 ## ROS
 
 ROS_DOMAIN_ID=13
-function rinit () {
+rinit () {
     export ROS_DOMAIN_ID=13
-    source $HOME/ros2_galactic/ros2-linux/setup.bash &>/dev/null
+    # shellcheck disable=SC1090
+    source "$HOME/ros2_galactic/ros2-linux/setup.bash" &>/dev/null
 }
 alias r='ros2'
 
-# Use nvim instead of vim
-alias vim=nvim
+# Docker aliases
+alias dpa='docker ps -a'
+
+# xclip selection aliases
+alias xsc='xclip -selection clipboard'
+alias xsp='xclip -selection primary'
+
+# qoowa directories
+SRC_DIR="$HOME/src"
+QOOWA_DIR="$SRC_DIR/qoowa"
+export SRC_DIR QOOWA_DIR
+alias qw="cd \$QOOWA_DIR"
+alias qwc="cd \$SRC_DIR/qoowa-config"
+alias qwpm="cd \$QOOWA_DIR/src/python_modules"
+alias qwak="cd \$QOOWA_DIR/src/python_modules/qoowa/ak903"
+
+# Git aliases
+alias gfp='git fetch --prune'
+alias gbdm="git branch --merged | grep -v ' main' | tr -d ' ' | tr -d '*' | xargs --no-run-if-empty git branch -d"
