@@ -81,16 +81,6 @@ sync-music-by-folder () {
 alias sbc="source \$HOME/.bashrc"
 alias sba="source \$HOME/.bash_aliases"
 
-## ROS
-
-ROS_DOMAIN_ID=13
-rinit () {
-    export ROS_DOMAIN_ID=13
-    # shellcheck disable=SC1090
-    source "$HOME/ros2_galactic/ros2-linux/setup.bash" &>/dev/null
-}
-alias r='ros2'
-
 # Docker aliases
 alias dpa='docker ps -a'
 

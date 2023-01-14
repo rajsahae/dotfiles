@@ -110,9 +110,6 @@ fi
 
 export PATH="/opt/gradle/gradle-7.4/bin:$HOME/.cargo/bin:$PATH"
 
-# Initialize ros2, from bash aliases
-rinit
-
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 
@@ -150,5 +147,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # GO path
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="/usr/local/go/bin:$PATH"
 . "$HOME/.cargo/env"
+
+# android studio variables
+export PATH="$PATH:/opt/android-studio/bin"
+export ANDROID_HOME="$HOME/Android/Sdk"
