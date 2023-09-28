@@ -100,3 +100,9 @@ alias qwak="cd \$QOOWA_DIR/src/python_modules/qoowa/ak903"
 # Git aliases
 alias gfp='git fetch --prune'
 alias gbdm="git branch --merged | grep -v ' main' | tr -d ' ' | tr -d '*' | xargs --no-run-if-empty git branch -d"
+
+# Replace vim with helix
+alias vim=hx
+
+# alias workaround for TERM variable in ssh
+alias ssh="TERM=xterm ssh"

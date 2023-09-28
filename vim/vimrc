@@ -268,8 +268,7 @@ set t_vb = ""  " no visual bell
 set nowrap  " don't wrap text
 
 " YCM mappings
-imap <silent> <C-g> <Plug>(YCMToggleSignatureHelp)
-imap <C-l> <C- >
+imap <silent> <leader>y <Plug>(YCMToggleSignatureHelp)
 
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
